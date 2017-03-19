@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ZLoadingView">
+        <attr name="z_type">
+            <enum name="CircleBuilder" value="0"/>
+            <enum name="ClockBuilder" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>
