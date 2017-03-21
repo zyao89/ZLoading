@@ -1,6 +1,7 @@
 package com.zyao89.view.zloading.clock;
 
 import android.animation.Animator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -26,9 +27,10 @@ public class CircleBuilder extends ZLoadingBuilder
     private float mEndAngle;
     private boolean mIsFirstState = true;
 
-    private void initValues()
+    private void initValues(Context context)
     {
-        float innerRadius = DEFAULT_SIZE - 20;
+        float allSize = getAllSize();
+        float innerRadius = allSize - dip2px(context, 3);
         mInnerCircleRectF = new RectF();
 
         mStartAngle = DEFAULT_ANGLE;
@@ -45,7 +47,7 @@ public class CircleBuilder extends ZLoadingBuilder
     {
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setColor(Color.BLACK);
-        initValues();
+        initValues(context);
     }
 
     @Override
@@ -63,7 +65,13 @@ public class CircleBuilder extends ZLoadingBuilder
     }
 
     @Override
-    protected void prepareStart()
+    protected void prepareStart(ValueAnimator floatValueAnimator)
+    {
+
+    }
+
+    @Override
+    protected void prepareEnd()
     {
 
     }
@@ -122,7 +130,6 @@ public class CircleBuilder extends ZLoadingBuilder
             mStartAngle = DEFAULT_ANGLE;
             mEndAngle = 360 + DEFAULT_ANGLE;
         }
-
     }
 
     protected Paint getPaint()

@@ -2,6 +2,8 @@ package com.zyao89.view.zloading;
 
 import com.zyao89.view.zloading.clock.CircleBuilder;
 import com.zyao89.view.zloading.clock.ClockBuilder;
+import com.zyao89.view.zloading.star.LeafBuilder;
+import com.zyao89.view.zloading.star.StarBuilder;
 
 /**
  * Created by zyao89 on 2017/3/19.
@@ -12,7 +14,10 @@ import com.zyao89.view.zloading.clock.ClockBuilder;
 public enum Z_TYPE
 {
     CIRCLE(CircleBuilder.class),
-    CIRCLE_CLOCK(ClockBuilder.class);
+    CIRCLE_CLOCK(ClockBuilder.class),
+    STAR_LOADING(StarBuilder.class),
+    LEAF_ROTATE(LeafBuilder.class),
+    ;
 
     private final Class<?> mBuilderClass;
 

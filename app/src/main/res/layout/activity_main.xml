@@ -11,11 +11,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.zyao89.zcustomview.MainActivity">
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/clockLoading"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Clock Loading"/>
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/circleLoading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Circle Loading"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/clockLoading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Clock Loading"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/starLoading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Star Loading"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/leafLoading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Leaf Loading"/>
+
+    </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

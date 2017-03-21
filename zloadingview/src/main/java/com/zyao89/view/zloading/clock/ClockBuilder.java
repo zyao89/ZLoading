@@ -26,20 +26,20 @@ public class ClockBuilder extends CircleBuilder
     protected void initParams(Context context)
     {
         super.initParams(context);
-        initOptions();
+        initOptions(context);
         createStrokePaint();
         createFillPaint();
     }
 
-    private void initOptions()
+    private void initOptions(Context context)
     {
-        float allSize = DEFAULT_SIZE - 10;
+        float allSize = getAllSize();
         mCircleSpace = 4;
         mOuterRadius = allSize - mCircleSpace;
-        float btnWidth = 20;
-        float btnHeight = 10;
-        float bottomBtnWidth = 10;
-        float bottomBtnHeight = 5;
+        float btnWidth = dip2px(context, 8);
+        float btnHeight = dip2px(context, 3);
+        float bottomBtnWidth = dip2px(context, 3);
+        float bottomBtnHeight = dip2px(context, 2);
         mBtnRectF = new RectF(getViewCenterX() - btnWidth/2, getViewCenterY() - allSize - bottomBtnHeight - btnHeight, getViewCenterX() + btnWidth/2, getViewCenterY() - allSize - bottomBtnHeight);
         mBottomBtnRectF = new RectF(getViewCenterX() - bottomBtnWidth/2, getViewCenterY() - allSize - bottomBtnHeight, getViewCenterX() + bottomBtnWidth/2, getViewCenterY() - allSize);
     }

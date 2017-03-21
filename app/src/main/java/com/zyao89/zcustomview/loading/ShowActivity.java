@@ -1,5 +1,6 @@
 package com.zyao89.zcustomview.loading;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import com.zyao89.zcustomview.R;
 
 public class ShowActivity extends AppCompatActivity
 {
+    public static final String LOADING_TYPE = "loading_type";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -17,13 +19,15 @@ public class ShowActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show);
 
-        init();
+        Intent intent = getIntent();
+        int type = intent.getIntExtra(LOADING_TYPE, 0);
+        init(type);
     }
 
-    private void init()
+    private void init(int type)
     {
         ZLoadingView clockLoading = (ZLoadingView) findViewById(R.id.loadingView);
-        clockLoading.setColorFilter(Color.BLUE);
-        clockLoading.setLoadingBuilder(Z_TYPE.CIRCLE_CLOCK);
+        clockLoading.setColorFilter(Color.WHITE);
+        clockLoading.setLoadingBuilder(Z_TYPE.values()[type]);
     }
 }

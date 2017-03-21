@@ -4,6 +4,8 @@
         <attr name="z_type">
             <enum name="CircleBuilder" value="0"/>
             <enum name="ClockBuilder" value="1"/>
+            <enum name="StarBuilder" value="2"/>
+            <enum name="LeafBuilder" value="3"/>
         </attr>
     </declare-styleable>
 </resources>

@@ -8,6 +8,7 @@ import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.FloatRange;
 import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 
 /**
  * Created by zyao89 on 2017/3/19.
@@ -18,9 +19,10 @@ import android.view.animation.Animation;
 public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateListener, Animator.AnimatorListener
 {
     protected static final float DEFAULT_SIZE          = 56.0f;
-    private static final long  ANIMATION_DURATION    = 1333;
-    private static final long  ANIMATION_START_DELAY = 333;
+    protected static final   long  ANIMATION_START_DELAY = 333;
+    protected static final   long  ANIMATION_DURATION    = 1333;
 
+    private float mAllSize;
     private float mViewWidth;
     private float mViewHeight;
 
@@ -30,6 +32,7 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
 
     void init(Context context)
     {
+        mAllSize = dip2px(context, DEFAULT_SIZE * 0.5f - 10);
         mViewWidth = dip2px(context, DEFAULT_SIZE);
         mViewHeight = dip2px(context, DEFAULT_SIZE);
         mDuration = ANIMATION_DURATION;
@@ -43,6 +46,7 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
         mFloatValueAnimator.setRepeatCount(Animation.INFINITE);
         mFloatValueAnimator.setDuration(mDuration);
         mFloatValueAnimator.setStartDelay(ANIMATION_START_DELAY);
+        mFloatValueAnimator.setInterpolator(new LinearInterpolator());
     }
 
     protected abstract void initParams(Context context);
@@ -51,7 +55,9 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
 
     protected abstract void setAlpha(int alpha);
 
-    protected abstract void prepareStart();
+    protected abstract void prepareStart(ValueAnimator floatValueAnimator);
+
+    protected abstract void prepareEnd();
 
     protected abstract void computeUpdateValue(@FloatRange(from = 0.0, to = 1.0) float animatedValue);
 
@@ -73,11 +79,11 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
         {
             return;
         }
-        prepareStart();
         mFloatValueAnimator.addUpdateListener(this);
         mFloatValueAnimator.addListener(this);
         mFloatValueAnimator.setRepeatCount(Animation.INFINITE);
         mFloatValueAnimator.setDuration(mDuration);
+        prepareStart(mFloatValueAnimator);
         mFloatValueAnimator.start();
     }
 
@@ -87,6 +93,7 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
         mFloatValueAnimator.removeAllListeners();
         mFloatValueAnimator.setRepeatCount(0);
         mFloatValueAnimator.setDuration(0);
+        prepareEnd();
         mFloatValueAnimator.end();
     }
 
@@ -144,12 +151,19 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
         return mViewWidth;
     }
 
-    protected final float getViewCenterX(){
+    protected final float getViewCenterX()
+    {
         return getIntrinsicWidth() * 0.5f;
     }
 
-    protected final float getViewCenterY(){
+    protected final float getViewCenterY()
+    {
         return getIntrinsicHeight() * 0.5f;
+    }
+
+    protected final float getAllSize()
+    {
+        return mAllSize;
     }
 
     protected static float dip2px(Context context, float dpValue)
