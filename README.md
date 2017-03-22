@@ -5,6 +5,10 @@
 
 ![展示图](capture/circle_loading.gif)
 
-[第二个View，StarLoadingView](http://zyao89.me/2017/03/22/Android自定义动画-StarLoadingView/)
+[第二个View，StarLoadingView](http://zyao89.github.io/2017/03/22/Android自定义动画-StarLoadingView/)
+
+![展示图](capture/star_loading.gif)
+
+[第三个View，LeafLoadingView](http://zyao89.github.io/)
 
 ![展示图](capture/leaf_loading.gif)
