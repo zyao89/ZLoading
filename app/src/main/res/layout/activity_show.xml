@@ -21,6 +21,7 @@
     <com.zyao89.view.zloading.ZLoadingView
         android:id="@+id/loadingView"
         android:layout_centerInParent="true"
+        app:z_color="#fff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 

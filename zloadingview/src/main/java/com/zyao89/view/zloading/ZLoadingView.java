@@ -2,6 +2,7 @@ package com.zyao89.view.zloading;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
@@ -38,7 +39,9 @@ public class ZLoadingView extends ImageView
         try {
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ZLoadingView);
             int typeId = ta.getInt(R.styleable.ZLoadingView_z_type, 0);
+            int color = ta.getColor(R.styleable.ZLoadingView_z_color, Color.WHITE);
             setLoadingBuilder(Z_TYPE.values()[typeId]);
+            setColorFilter(color);
             ta.recycle();
         } catch (Exception e) {
             e.printStackTrace();

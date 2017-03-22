@@ -1,5 +1,7 @@
 package com.zyao89.view.zloading;
 
+import com.zyao89.view.zloading.circle.DoubleCircleBuilder;
+import com.zyao89.view.zloading.circle.PacManBuilder;
 import com.zyao89.view.zloading.clock.CircleBuilder;
 import com.zyao89.view.zloading.clock.ClockBuilder;
 import com.zyao89.view.zloading.star.LeafBuilder;
@@ -17,6 +19,8 @@ public enum Z_TYPE
     CIRCLE_CLOCK(ClockBuilder.class),
     STAR_LOADING(StarBuilder.class),
     LEAF_ROTATE(LeafBuilder.class),
+    DOUBLE_CIRCLE(DoubleCircleBuilder.class),
+    PAC_MAN(PacManBuilder.class),
     ;
 
     private final Class<?> mBuilderClass;

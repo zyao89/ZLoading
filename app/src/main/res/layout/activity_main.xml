@@ -44,6 +44,20 @@
             android:padding="10dp"
             android:text="Leaf Loading"/>
 
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/doubleCircleLoading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="Double Circle Loading"/>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/pacManLoading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="PacMan Loading"/>
+
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>

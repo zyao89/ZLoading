@@ -27,7 +27,7 @@ public class ShowActivity extends AppCompatActivity
     private void init(int type)
     {
         ZLoadingView clockLoading = (ZLoadingView) findViewById(R.id.loadingView);
-        clockLoading.setColorFilter(Color.WHITE);
+//        clockLoading.setColorFilter(Color.WHITE);
         clockLoading.setLoadingBuilder(Z_TYPE.values()[type]);
     }
 }

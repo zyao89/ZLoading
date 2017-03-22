@@ -10,11 +10,13 @@ import com.zyao89.zcustomview.loading.ShowActivity;
 
 public class MainActivity extends AppCompatActivity
 {
-
+    private static int INDEX = 0;
     private AppCompatButton mCircleLoading;
     private AppCompatButton mClockLoading;
     private AppCompatButton mStarLoading;
     private AppCompatButton mLeafLoading;
+    private AppCompatButton mDoubleCircleLoading;
+    private AppCompatButton mPacManLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,20 +27,25 @@ public class MainActivity extends AppCompatActivity
         mClockLoading = (AppCompatButton) findViewById(R.id.clockLoading);
         mStarLoading = (AppCompatButton) findViewById(R.id.starLoading);
         mLeafLoading = (AppCompatButton) findViewById(R.id.leafLoading);
+        mDoubleCircleLoading = (AppCompatButton) findViewById(R.id.doubleCircleLoading);
+        mPacManLoading = (AppCompatButton) findViewById(R.id.pacManLoading);
 
         initListeners();
     }
 
     private void initListeners()
     {
-        setupListener(mCircleLoading, 0);
-        setupListener(mClockLoading, 1);
-        setupListener(mStarLoading, 2);
-        setupListener(mLeafLoading, 3);
+        setupListener(mCircleLoading);
+        setupListener(mClockLoading);
+        setupListener(mStarLoading);
+        setupListener(mLeafLoading);
+        setupListener(mDoubleCircleLoading);
+        setupListener(mPacManLoading);
     }
 
-    private void setupListener(View view, final int type)
+    private void setupListener(View view)
     {
+        final int type = INDEX++;
         view.setOnClickListener(new View.OnClickListener()
         {
             @Override

@@ -9,6 +9,6 @@
 
 ![展示图](capture/star_loading.gif)
 
-[第三个View，LeafLoadingView](http://zyao89.github.io/)
+[第三个View，LeafLoadingView](http://zyao89.me/2017/03/22/旋转的叶子-LeafLoadingView/)
 
 ![展示图](capture/leaf_loading.gif)

@@ -7,5 +7,6 @@
             <enum name="StarBuilder" value="2"/>
             <enum name="LeafBuilder" value="3"/>
         </attr>
+        <attr name="z_color" format="color"/>
     </declare-styleable>
 </resources>
