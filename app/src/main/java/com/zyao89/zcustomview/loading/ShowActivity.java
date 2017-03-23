@@ -26,8 +26,22 @@ public class ShowActivity extends AppCompatActivity
 
     private void init(int type)
     {
-        ZLoadingView clockLoading = (ZLoadingView) findViewById(R.id.loadingView);
+        ZLoadingView zLoadingView_1 = (ZLoadingView) findViewById(R.id.loadingView_1);
+        ZLoadingView zLoadingView_2 = (ZLoadingView) findViewById(R.id.loadingView_2);
+        ZLoadingView zLoadingView_3 = (ZLoadingView) findViewById(R.id.loadingView_3);
+        ZLoadingView zLoadingView_4 = (ZLoadingView) findViewById(R.id.loadingView_4);
+        ZLoadingView zLoadingView_5 = (ZLoadingView) findViewById(R.id.loadingView_5);
 //        clockLoading.setColorFilter(Color.WHITE);
-        clockLoading.setLoadingBuilder(Z_TYPE.values()[type]);
+
+        initBuilder(zLoadingView_1, type);
+        initBuilder(zLoadingView_2, type);
+        initBuilder(zLoadingView_3, type);
+        initBuilder(zLoadingView_4, type);
+        initBuilder(zLoadingView_5, type);
+    }
+
+    private void initBuilder(ZLoadingView zLoadingView, int type)
+    {
+        zLoadingView.setLoadingBuilder(Z_TYPE.values()[type]);
     }
 }

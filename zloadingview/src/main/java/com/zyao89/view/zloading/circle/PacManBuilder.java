@@ -9,7 +9,6 @@ import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.annotation.FloatRange;
-import android.view.animation.AccelerateInterpolator;
 
 import com.zyao89.view.zloading.ZLoadingBuilder;
 
@@ -22,7 +21,7 @@ import com.zyao89.view.zloading.ZLoadingBuilder;
 public class PacManBuilder extends ZLoadingBuilder
 {
     //最终阶段
-    private static final int FINAL_STATE     = 5;
+    private static final int FINAL_STATE     = 9;
     private static final int MAX_MOUTH_ANGLE = 45;
     private Paint mFullPaint;
     private RectF mOuterCircleRectF;
@@ -42,11 +41,11 @@ public class PacManBuilder extends ZLoadingBuilder
         float outR = getAllSize();
         float inR = outR * 0.7f;
         mBeansR = inR * 0.2f;//豆豆半径
-        mMaxMoveRange = getIntrinsicWidth() * 0.5f;
+        mMaxMoveRange = getIntrinsicWidth() + 2 * inR; //移动距离范围
         initPaint();//圆范围
         mMouthAngle = MAX_MOUTH_ANGLE;//嘴度数
         HorizontalAngle = 0;
-        mDefaultStartMoveX = -mMaxMoveRange * 0.5f;
+        mDefaultStartMoveX = - mMaxMoveRange * 0.5f;//默认偏移量
         mMoveDistance = 0;
         mOuterCircleRectF = new RectF();
         mOuterCircleRectF.set(getViewCenterX() - inR, getViewCenterY() - inR, getViewCenterX() + inR, getViewCenterY() + inR);
@@ -71,9 +70,6 @@ public class PacManBuilder extends ZLoadingBuilder
         canvas.rotate(HorizontalAngle, getViewCenterX(), getViewCenterY());
         canvas.drawArc(mOuterCircleRectF, mMouthAngle, 360 - mMouthAngle * 2, true, mFullPaint);
         canvas.restore();
-//        canvas.drawCircle(getViewCenterX() + 30, getViewCenterY(), mBeansR, mFullPaint);
-//        canvas.drawCircle(getViewCenterX() + 60, getViewCenterY(), mBeansR, mFullPaint);
-//        canvas.drawCircle(getViewCenterX() + 90, getViewCenterY(), mBeansR, mFullPaint);
     }
 
     @Override
@@ -85,8 +81,7 @@ public class PacManBuilder extends ZLoadingBuilder
     @Override
     protected void prepareStart(ValueAnimator floatValueAnimator)
     {
-        floatValueAnimator.setDuration(300);
-        floatValueAnimator.setInterpolator(new AccelerateInterpolator());
+        floatValueAnimator.setDuration(333);
     }
 
     @Override
@@ -98,21 +93,59 @@ public class PacManBuilder extends ZLoadingBuilder
     @Override
     protected void computeUpdateValue(@FloatRange(from = 0.0, to = 1.0) float animatedValue)
     {
+        int half = FINAL_STATE / 2 + 1;
+        float step = mMaxMoveRange / half;
         switch (mCurrAnimatorState)//以下分为三个阶段
         {
             case 0://向右移动
+                HorizontalAngle = 0;
+                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
+                mMoveDistance = mLastMoveDistance + step * animatedValue;
+                break;
             case 1:
-            case 2:
                 HorizontalAngle = 0;
                 mMouthAngle = (int) (MAX_MOUTH_ANGLE * (1 - animatedValue)) + 5;
-                mMoveDistance = mLastMoveDistance + mMaxMoveRange / 3 * animatedValue;
+                mMoveDistance = mLastMoveDistance + step * animatedValue;
                 break;
-            case 3://向左移动
+            case 2:
+                HorizontalAngle = 0;
+                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
+                mMoveDistance = mLastMoveDistance + step * animatedValue;
+                break;
+            case 3:
+                HorizontalAngle = 0;
+                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (1 - animatedValue)) + 5;
+                mMoveDistance = mLastMoveDistance + step * animatedValue;
+                break;
             case 4:
-            case 5:
+                HorizontalAngle = 0;
+                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
+                mMoveDistance = mLastMoveDistance + step * animatedValue;
+                break;
+            case 5://向左移动
                 HorizontalAngle = 180;
-                mMouthAngle = (int) (MAX_MOUTH_ANGLE * animatedValue) + 5;
-                mMoveDistance = mLastMoveDistance - mMaxMoveRange / 3 * animatedValue;
+                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
+                mMoveDistance = mLastMoveDistance - step * animatedValue;
+                break;
+            case 6:
+                HorizontalAngle = 180;
+                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (1 - animatedValue)) + 5;
+                mMoveDistance = mLastMoveDistance - step * animatedValue;
+                break;
+            case 7:
+                HorizontalAngle = 180;
+                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
+                mMoveDistance = mLastMoveDistance - step * animatedValue;
+                break;
+            case 8:
+                HorizontalAngle = 180;
+                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (1 - animatedValue)) + 5;
+                mMoveDistance = mLastMoveDistance - step * animatedValue;
+                break;
+            case 9:
+                HorizontalAngle = 180;
+                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
+                mMoveDistance = mLastMoveDistance - step * animatedValue;
                 break;
         }
     }
@@ -125,14 +158,15 @@ public class PacManBuilder extends ZLoadingBuilder
             mCurrAnimatorState = 0;
         }
         //矫正
-        float stepRange = mMaxMoveRange / 3;
-        if (mCurrAnimatorState < 3)
+        int half = FINAL_STATE / 2 + 1;
+        float stepRange = mMaxMoveRange / half;
+        if (mCurrAnimatorState < half)
         {
             mLastMoveDistance = stepRange * mCurrAnimatorState;
         }
         else
         {
-            mLastMoveDistance = stepRange * (3 - mCurrAnimatorState % 3);
+            mLastMoveDistance = stepRange * (half - mCurrAnimatorState % half);
         }
     }
 

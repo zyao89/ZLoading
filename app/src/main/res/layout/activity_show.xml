@@ -1,52 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_show"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@android:color/black"
+    android:background="@android:color/white"
+    android:orientation="vertical"
     tools:context="com.zyao89.zcustomview.loading.ShowActivity">
 
-    <!--<com.zyao89.zcustomview.loading.ClockLoading-->
-        <!--android:layout_width="100dp"-->
-        <!--android:layout_height="100dp"/>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <com.zyao89.view.zloading.ZLoadingView
-        android:id="@+id/loadingView"
-        android:layout_centerInParent="true"
-        app:z_color="#fff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-    <android.support.v7.widget.AppCompatTextView
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.zyao89.view.zloading.ZLoadingView
+                    android:id="@+id/loadingView_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:z_color="@android:color/holo_blue_bright"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="Loading..."
+                    android:textColor="@android:color/holo_blue_bright"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.zyao89.view.zloading.ZLoadingView
+                    android:id="@+id/loadingView_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:z_color="@android:color/holo_orange_light"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="Loading..."
+                    android:textColor="@android:color/holo_orange_light"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.zyao89.view.zloading.ZLoadingView
+                    android:id="@+id/loadingView_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:z_color="@android:color/holo_green_light"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="Loading..."
+                    android:textColor="@android:color/holo_green_light"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.zyao89.view.zloading.ZLoadingView
+                    android:id="@+id/loadingView_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:z_color="@android:color/holo_purple"/>
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="3dp"
+                    android:text="Loading..."
+                    android:textColor="@android:color/holo_purple"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/loadingView"
         android:layout_centerInParent="true"
-        android:textColor="@android:color/white"
-        android:padding="3dp"
-        android:text="Loading..."/>
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.zyao89.view.zloading.ZLoadingView
+            android:id="@+id/loadingView_5"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            app:z_color="@color/colorAccent"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="Loading..."
+            android:textColor="@color/colorAccent"/>
+
+    </LinearLayout>
+
+    <!--<com.zyao89.zcustomview.loading.ClockLoading-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"/>-->
 
     <!--<com.zyao89.view.zloading.ZLoadingView-->
-        <!--app:z_type="CircleBuilder"-->
-        <!--android:layout_width="100dp"-->
-        <!--android:layout_height="100dp"/>-->
+    <!--app:z_type="CircleBuilder"-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"/>-->
 
     <!--<com.zyao89.view.zloading.ZLoadingView-->
-        <!--app:z_type="ClockBuilder"-->
-        <!--android:layout_width="200dp"-->
-        <!--android:layout_height="200dp"/>-->
+    <!--app:z_type="ClockBuilder"-->
+    <!--android:layout_width="200dp"-->
+    <!--android:layout_height="200dp"/>-->
 
     <!--<com.zyao89.view.zloading.ZLoadingView-->
-        <!--app:z_type="ClockBuilder"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"/>-->
+    <!--app:z_type="ClockBuilder"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"/>-->
 
 </RelativeLayout>
