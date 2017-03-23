@@ -10,7 +10,7 @@ import com.zyao89.zcustomview.loading.ShowActivity;
 
 public class MainActivity extends AppCompatActivity
 {
-    private static int INDEX = 0;
+    private volatile int INDEX = 0;
     private AppCompatButton mCircleLoading;
     private AppCompatButton mClockLoading;
     private AppCompatButton mStarLoading;

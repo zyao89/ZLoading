@@ -26,7 +26,6 @@ public class PacManBuilder extends ZLoadingBuilder
     private Paint mFullPaint;
     private RectF mOuterCircleRectF;
     private int   mMouthAngle;
-    private float mBeansR;
     private float mMoveDistance;
     //当前动画阶段
     private int mCurrAnimatorState = 0;
@@ -40,15 +39,13 @@ public class PacManBuilder extends ZLoadingBuilder
     {
         float outR = getAllSize();
         float inR = outR * 0.7f;
-        mBeansR = inR * 0.2f;//豆豆半径
         mMaxMoveRange = getIntrinsicWidth() + 2 * inR; //移动距离范围
         initPaint();//圆范围
         mMouthAngle = MAX_MOUTH_ANGLE;//嘴度数
-        HorizontalAngle = 0;
-        mDefaultStartMoveX = - mMaxMoveRange * 0.5f;//默认偏移量
-        mMoveDistance = 0;
-        mOuterCircleRectF = new RectF();
-        mOuterCircleRectF.set(getViewCenterX() - inR, getViewCenterY() - inR, getViewCenterX() + inR, getViewCenterY() + inR);
+        HorizontalAngle = 0;//水平翻转度数
+        mDefaultStartMoveX = -mMaxMoveRange * 0.5f;//默认偏移量
+        mMoveDistance = 0;//移动距离
+        mOuterCircleRectF = new RectF(getViewCenterX() - inR, getViewCenterY() - inR, getViewCenterX() + inR, getViewCenterY() + inR);
     }
 
     private void initPaint()
@@ -95,58 +92,24 @@ public class PacManBuilder extends ZLoadingBuilder
     {
         int half = FINAL_STATE / 2 + 1;
         float step = mMaxMoveRange / half;
-        switch (mCurrAnimatorState)//以下分为三个阶段
+        if (mCurrAnimatorState < 5)//以下分为两个阶段
+        {//向右
+            HorizontalAngle = 0;
+            mMoveDistance = mLastMoveDistance + step * animatedValue;
+        }
+        else
+        {//向左
+            HorizontalAngle = 180;
+            mMoveDistance = mLastMoveDistance - step * animatedValue;
+        }
+        //嘴张开度数
+        if (mCurrAnimatorState % 2 == 0)
         {
-            case 0://向右移动
-                HorizontalAngle = 0;
-                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
-                mMoveDistance = mLastMoveDistance + step * animatedValue;
-                break;
-            case 1:
-                HorizontalAngle = 0;
-                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (1 - animatedValue)) + 5;
-                mMoveDistance = mLastMoveDistance + step * animatedValue;
-                break;
-            case 2:
-                HorizontalAngle = 0;
-                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
-                mMoveDistance = mLastMoveDistance + step * animatedValue;
-                break;
-            case 3:
-                HorizontalAngle = 0;
-                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (1 - animatedValue)) + 5;
-                mMoveDistance = mLastMoveDistance + step * animatedValue;
-                break;
-            case 4:
-                HorizontalAngle = 0;
-                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
-                mMoveDistance = mLastMoveDistance + step * animatedValue;
-                break;
-            case 5://向左移动
-                HorizontalAngle = 180;
-                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
-                mMoveDistance = mLastMoveDistance - step * animatedValue;
-                break;
-            case 6:
-                HorizontalAngle = 180;
-                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (1 - animatedValue)) + 5;
-                mMoveDistance = mLastMoveDistance - step * animatedValue;
-                break;
-            case 7:
-                HorizontalAngle = 180;
-                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
-                mMoveDistance = mLastMoveDistance - step * animatedValue;
-                break;
-            case 8:
-                HorizontalAngle = 180;
-                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (1 - animatedValue)) + 5;
-                mMoveDistance = mLastMoveDistance - step * animatedValue;
-                break;
-            case 9:
-                HorizontalAngle = 180;
-                mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
-                mMoveDistance = mLastMoveDistance - step * animatedValue;
-                break;
+            mMouthAngle = (int) (MAX_MOUTH_ANGLE * (animatedValue)) + 5;
+        }
+        else
+        {
+            mMouthAngle = (int) (MAX_MOUTH_ANGLE * (1 - animatedValue)) + 5;
         }
     }
 
