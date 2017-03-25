@@ -43,5 +43,8 @@ public class ShowActivity extends AppCompatActivity
     private void initBuilder(ZLoadingView zLoadingView, int type)
     {
         zLoadingView.setLoadingBuilder(Z_TYPE.values()[type]);
+
+        zLoadingView.setLoadingBuilder(Z_TYPE.CIRCLE);
+        zLoadingView.setColorFilter(Color.WHITE);
     }
 }
