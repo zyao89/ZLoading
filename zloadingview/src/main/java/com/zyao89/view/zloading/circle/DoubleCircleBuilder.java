@@ -30,8 +30,11 @@ public class DoubleCircleBuilder extends ZLoadingBuilder
     @Override
     protected void initParams(Context context)
     {
+        //最大尺寸
         float outR = getAllSize();
+        //小圆尺寸
         float inR = outR * 0.6f;
+        //初始化画笔
         initPaint(inR * 0.4f);
         //旋转角度
         mRotateAngle = 0;
@@ -62,7 +65,9 @@ public class DoubleCircleBuilder extends ZLoadingBuilder
     protected void onDraw(Canvas canvas)
     {
         canvas.save();
+        //外圆
         canvas.drawArc(mOuterCircleRectF, mRotateAngle % 360, OUTER_CIRCLE_ANGLE, false, mStrokePaint);
+        //内圆
         canvas.drawArc(mInnerCircleRectF, 270 - mRotateAngle % 360, INTER_CIRCLE_ANGLE, false, mStrokePaint);
         canvas.restore();
     }

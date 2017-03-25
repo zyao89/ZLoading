@@ -23,6 +23,7 @@ public class PacManBuilder extends ZLoadingBuilder
     //最终阶段
     private static final int FINAL_STATE     = 9;
     private static final int MAX_MOUTH_ANGLE = 45;
+    private static final long DURATION_TIME = 333;
     private Paint mFullPaint;
     private RectF mOuterCircleRectF;
     private int   mMouthAngle;
@@ -78,7 +79,7 @@ public class PacManBuilder extends ZLoadingBuilder
     @Override
     protected void prepareStart(ValueAnimator floatValueAnimator)
     {
-        floatValueAnimator.setDuration(333);
+        floatValueAnimator.setDuration(DURATION_TIME);
     }
 
     @Override
@@ -92,7 +93,7 @@ public class PacManBuilder extends ZLoadingBuilder
     {
         int half = FINAL_STATE / 2 + 1;
         float step = mMaxMoveRange / half;
-        if (mCurrAnimatorState < 5)//以下分为两个阶段
+        if (mCurrAnimatorState < half)//以下分为两个阶段
         {//向右
             HorizontalAngle = 0;
             mMoveDistance = mLastMoveDistance + step * animatedValue;
