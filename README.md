@@ -29,6 +29,7 @@ zLoadingView.setColorFilter(Color.WHITE);//设置颜色
 3|LeafBuilder | LEAF_ROTATE
 4|DoubleCircleBuilder | DOUBLE_CIRCLE
 5|PacManBuilder | PAC_MAN
+6|ElasticBallBuilder | ELASTIC_BALL
 
 
 ### 效果图如下
