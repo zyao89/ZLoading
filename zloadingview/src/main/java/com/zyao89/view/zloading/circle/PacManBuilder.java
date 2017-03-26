@@ -89,7 +89,7 @@ public class PacManBuilder extends ZLoadingBuilder
     }
 
     @Override
-    protected void computeUpdateValue(@FloatRange(from = 0.0, to = 1.0) float animatedValue)
+    protected void computeUpdateValue(ValueAnimator animation, @FloatRange(from = 0.0, to = 1.0) float animatedValue)
     {
         int half = FINAL_STATE / 2 + 1;
         float step = mMaxMoveRange / half;

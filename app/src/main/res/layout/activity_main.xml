@@ -12,52 +12,9 @@
     tools:context="com.zyao89.zcustomview.MainActivity">
 
     <LinearLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:orientation="vertical"
-        android:layout_height="match_parent">
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/circleLoading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Circle Loading"/>
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/clockLoading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Clock Loading"/>
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/starLoading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Star Loading"/>
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/leafLoading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Leaf Loading"/>
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/doubleCircleLoading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="Double Circle Loading"/>
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/pacManLoading"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="PacMan Loading"/>
-
-    </LinearLayout>
+        android:layout_height="match_parent"/>
 
 </android.support.v4.widget.NestedScrollView>

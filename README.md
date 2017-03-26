@@ -52,3 +52,7 @@ zLoadingView.setColorFilter(Color.WHITE);//设置颜色
 [第五个，PacManBuilder](http://zyao89.me/2017/03/26/Android自定义加载动画-PacMan/)
 
 ![展示图](capture/pac_man.gif)
+
+[第六个，ElasticBallBuilder](http://zyao89.me/2017/03/26/Android自定义加载动画-PacMan/)
+
+![展示图](capture/elastic_ball.gif)

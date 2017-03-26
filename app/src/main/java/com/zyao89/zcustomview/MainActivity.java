@@ -4,55 +4,50 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.zyao89.view.zloading.Z_TYPE;
 import com.zyao89.zcustomview.loading.ShowActivity;
 
 public class MainActivity extends AppCompatActivity
 {
-    private volatile int INDEX = 0;
-    private AppCompatButton mCircleLoading;
-    private AppCompatButton mClockLoading;
-    private AppCompatButton mStarLoading;
-    private AppCompatButton mLeafLoading;
-    private AppCompatButton mDoubleCircleLoading;
-    private AppCompatButton mPacManLoading;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mCircleLoading = (AppCompatButton) findViewById(R.id.circleLoading);
-        mClockLoading = (AppCompatButton) findViewById(R.id.clockLoading);
-        mStarLoading = (AppCompatButton) findViewById(R.id.starLoading);
-        mLeafLoading = (AppCompatButton) findViewById(R.id.leafLoading);
-        mDoubleCircleLoading = (AppCompatButton) findViewById(R.id.doubleCircleLoading);
-        mPacManLoading = (AppCompatButton) findViewById(R.id.pacManLoading);
+        LinearLayout containerLinearLayout = (LinearLayout) findViewById(R.id.container);
 
-        initListeners();
+        createButtons(containerLinearLayout);
     }
 
-    private void initListeners()
+    private void createButtons(LinearLayout containerLinearLayout)
     {
-        setupListener(mCircleLoading);
-        setupListener(mClockLoading);
-        setupListener(mStarLoading);
-        setupListener(mLeafLoading);
-        setupListener(mDoubleCircleLoading);
-        setupListener(mPacManLoading);
+        Z_TYPE[] types = Z_TYPE.values();
+        for (Z_TYPE type : types)
+        {
+            AppCompatButton button = new AppCompatButton(this);
+            int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
+            button.setPadding(padding, padding, padding, padding);
+            containerLinearLayout.addView(button, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            button.setText(String.format("%s LOADING", type.name()));
+            setupListener(button, type);
+        }
     }
 
-    private void setupListener(View view)
+    private void setupListener(View view, final Z_TYPE type)
     {
-        final int type = INDEX++;
+        final int index = type.ordinal();
         view.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
                 Intent intent = new Intent(MainActivity.this, ShowActivity.class);
-                intent.putExtra(ShowActivity.LOADING_TYPE, type);
+                intent.putExtra(ShowActivity.LOADING_TYPE, index);
                 startActivity(intent);
             }
         });

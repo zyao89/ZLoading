@@ -1,5 +1,6 @@
 package com.zyao89.view.zloading;
 
+import com.zyao89.view.zloading.ball.ElasticBallBuilder;
 import com.zyao89.view.zloading.circle.DoubleCircleBuilder;
 import com.zyao89.view.zloading.circle.PacManBuilder;
 import com.zyao89.view.zloading.clock.CircleBuilder;
@@ -21,6 +22,7 @@ public enum Z_TYPE
     LEAF_ROTATE(LeafBuilder.class),
     DOUBLE_CIRCLE(DoubleCircleBuilder.class),
     PAC_MAN(PacManBuilder.class),
+    ELASTIC_BALL(ElasticBallBuilder.class),
     ;
 
     private final Class<?> mBuilderClass;

@@ -59,7 +59,7 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
 
     protected abstract void prepareEnd();
 
-    protected abstract void computeUpdateValue(@FloatRange(from = 0.0, to = 1.0) float animatedValue);
+    protected abstract void computeUpdateValue(ValueAnimator animation, @FloatRange(from = 0.0, to = 1.0) float animatedValue);
 
     protected abstract void setColorFilter(ColorFilter colorFilter);
 
@@ -105,7 +105,7 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
     @Override
     public final void onAnimationUpdate(ValueAnimator animation)
     {
-        computeUpdateValue((float) animation.getAnimatedValue());
+        computeUpdateValue(animation, (float) animation.getAnimatedValue());
         invalidateSelf();
     }
 

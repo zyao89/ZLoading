@@ -33,6 +33,7 @@ public class LeafBuilder extends ZLoadingBuilder
     private int   mRotateAngle;
     //当前动画阶段
     private int   mCurrAnimatorState = 0;
+    private Path mStarPath;
 
     @Override
     protected void initParams(Context context)
@@ -52,6 +53,8 @@ public class LeafBuilder extends ZLoadingBuilder
         mCenterCircleR = dip2px(context, 3);
         //旋转角度
         mRotateAngle = 0;
+        //路径
+        mStarPath = new Path();
     }
 
     /**
@@ -74,26 +77,27 @@ public class LeafBuilder extends ZLoadingBuilder
         //旋转
         canvas.rotate(mRotateAngle, getViewCenterX(), getViewCenterY());
         //路径
-        Path starPath = createStarPath(5, -18);
+        createStarPath(mStarPath, 5, -18);
         //路径加入中心圆
-        starPath.addCircle(getViewCenterX(), getViewCenterY(), mCenterCircleR, Path.Direction.CW);
+        mStarPath.addCircle(getViewCenterX(), getViewCenterY(), mCenterCircleR, Path.Direction.CW);
         //这个很关键，选择路径填充方式
-        starPath.setFillType(Path.FillType.EVEN_ODD);
+        mStarPath.setFillType(Path.FillType.EVEN_ODD);
         //绘制
-        canvas.drawPath(starPath, mFullPaint);
+        canvas.drawPath(mStarPath, mFullPaint);
         canvas.restore();
     }
 
     /**
      * 绘制五叶草
      *
+     * @param path 路径
      * @param num        角数量
      * @param startAngle 初始角度
      * @return
      */
-    private Path createStarPath(int num, int startAngle)
+    private void createStarPath(Path path, int num, int startAngle)
     {
-        final Path path = new Path();
+        path.reset();
         int angle = 360 / num;
         int roundSize = 5;//圆角弧度
         int offsetAngle = angle / 2;
@@ -109,7 +113,6 @@ public class LeafBuilder extends ZLoadingBuilder
             path.quadTo(getViewCenterX() + mStarInMidR * cos(value + offsetAngle), getViewCenterY() + mStarInMidR * sin(value + offsetAngle), getViewCenterX() + mStarInR * cos(value + offsetAngle + roundSize), getViewCenterY() + mStarInR * sin(value + offsetAngle + roundSize));
         }
         path.close();
-        return path;
     }
 
     @Override
@@ -131,7 +134,7 @@ public class LeafBuilder extends ZLoadingBuilder
     }
 
     @Override
-    protected void computeUpdateValue(@FloatRange(from = 0.0, to = 1.0) float animatedValue)
+    protected void computeUpdateValue(ValueAnimator animation, @FloatRange(from = 0.0, to = 1.0) float animatedValue)
     {
         switch (mCurrAnimatorState)//以下分为三个阶段
         {

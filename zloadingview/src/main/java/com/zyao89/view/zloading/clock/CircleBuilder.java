@@ -77,7 +77,7 @@ public class CircleBuilder extends ZLoadingBuilder
     }
 
     @Override
-    protected void computeUpdateValue(@FloatRange(from = 0.0, to = 1.0) float animatedValue)
+    protected void computeUpdateValue(ValueAnimator animation, @FloatRange(from = 0.0, to = 1.0) float animatedValue)
     {
         if (mIsFirstState)
         {
