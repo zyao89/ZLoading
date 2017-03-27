@@ -82,8 +82,8 @@ public class ElasticBallBuilder extends ZLoadingBuilder
     }
 
     /**
-     * p10    p9      p8
-     * ------  ------
+     *      p10    p9      p8
+     *      ------  ------
      * p11                     p7
      * |                       |
      * |                       |
@@ -91,8 +91,8 @@ public class ElasticBallBuilder extends ZLoadingBuilder
      * |                       |
      * |                       |
      * p1                      p5
-     * ------  ------
-     * p2      p3      p4
+     *      ------  ------
+     *      p2      p3      p4
      */
     private void initPoints()
     {
