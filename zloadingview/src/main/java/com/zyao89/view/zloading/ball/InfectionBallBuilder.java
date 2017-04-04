@@ -26,7 +26,7 @@ public class InfectionBallBuilder extends BaseBallBuilder
     private static final long DURATION_TIME_3 = 1333;
     private static final long DURATION_TIME_4 = 1333;
     //最终阶段
-    private static final int  FINAL_STATE     = 5;
+    private static final int  FINAL_STATE     = 4;
     private static final int  SUM_POINT_POS   = 3;
     private float mBallR;
     private Path  mPath;
@@ -86,29 +86,11 @@ public class InfectionBallBuilder extends BaseBallBuilder
             case 0:
                 animation.setDuration(DURATION_TIME);
                 animation.setInterpolator(new AccelerateInterpolator());
-                for (int i = 0; i < mBallPoints.size(); i++)
-                {
-                    CirclePoint circlePoint = mBallPoints.get(i);
-                    if (4 <= i && i <= 8)
-                    {
-                        circlePoint.setOffsetX(-mBallR * (1 - animatedValue));
-                        circlePoint.setOffsetY(-mBallR * (1 - animatedValue));
-                    }
-                    else if (i == 2 || i == 1 || i == 0 || i == 10 || i == 11)
-                    {
-                        circlePoint.setOffsetX(mBallR * (1 - animatedValue));
-                        circlePoint.setOffsetY(mBallR * (1 - animatedValue));
-                    }
-                }
-                break;
-            case 1:
-                animation.setDuration(DURATION_TIME);
-                animation.setInterpolator(new AccelerateInterpolator());
                 mBallPoints.get(2).setOffsetY(animatedValue * offset);
                 mBallPoints.get(3).setOffsetY(animatedValue * offset);
                 mBallPoints.get(4).setOffsetY(animatedValue * offset);
                 break;
-            case 2:
+            case 1:
                 animation.setDuration(DURATION_TIME_1);
                 animation.setInterpolator(new LinearInterpolator());
                 mBallPoints.get(5).setOffsetY(animatedValue * offset);
@@ -118,7 +100,7 @@ public class InfectionBallBuilder extends BaseBallBuilder
                 mBallPoints.get(0).setOffsetY(animatedValue * offset);
                 mBallPoints.get(11).setOffsetY(animatedValue * offset);
                 break;
-            case 3:
+            case 2:
                 animation.setDuration(DURATION_TIME_2);
                 animation.setInterpolator(new AccelerateInterpolator());
                 for (int i = 0; i < mBallPoints.size(); i++)
@@ -133,7 +115,7 @@ public class InfectionBallBuilder extends BaseBallBuilder
                     }
                 }
                 break;
-            case 4:
+            case 3:
                 animation.setDuration(DURATION_TIME_3);
                 animation.setInterpolator(new DecelerateInterpolator());
 
@@ -149,7 +131,7 @@ public class InfectionBallBuilder extends BaseBallBuilder
                 mBallPoints.get(0).setOffsetX(-animatedValue * offset);
                 mBallPoints.get(11).setOffsetX(-animatedValue * offset);
                 break;
-            case 5:
+            case 4:
                 animation.setDuration(DURATION_TIME_4);
                 mPaint.setAlpha((int) ((1 - animatedValue) * 255));
                 break;
