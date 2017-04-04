@@ -64,4 +64,4 @@ zLoadingView.setColorFilter(Color.WHITE);//设置颜色
 
 [第八个，IntertwineBuilder](http://zyao89.me/2017/03/27/Android自定义加载动画-颤抖吧！球球/)
 
-![展示图](capture/intertwine_loading.gif)
+![展示图](capture/intertwine.gif)
