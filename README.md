@@ -88,7 +88,7 @@ dialog.setLoadingBuilder(type)//设置类型
 
 ### License
 ```
-   Copyright [2017] [zyao89]
+   Copyright 2017 zyao89
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
