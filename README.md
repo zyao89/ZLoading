@@ -20,6 +20,22 @@ zLoadingView.setLoadingBuilder(Z_TYPE.CIRCLE);//设置类型
 zLoadingView.setColorFilter(Color.WHITE);//设置颜色
 ```
 
+3. 【新增】Dialog对话框模式
+```java
+ZLoadingDialog dialog = new ZLoadingDialog(MainActivity.this);
+dialog.setLoadingBuilder(type)//设置类型
+        .setLoadingColor(Color.BLACK)//颜色
+        .setHintText("Loading...")
+        .show();
+```
+
+效果如下：
+
+![效果图](capture/zLoadingDialog.gif)
+
+
+---
+
 ### 目前拥有的类型：
 索引 | 名称 | 枚举值（Z_TYPE）
 :------:|:------:|:------:
@@ -30,6 +46,9 @@ zLoadingView.setColorFilter(Color.WHITE);//设置颜色
 4|DoubleCircleBuilder | DOUBLE_CIRCLE
 5|PacManBuilder | PAC_MAN
 6|ElasticBallBuilder | ELASTIC_BALL
+7|InfectionBallBuilder | INFECTION_BALL
+8|IntertwineBuilder | INTERTWINE
+9|TextBuilder | TEXT
 
 
 ### 效果图如下
@@ -58,10 +77,10 @@ zLoadingView.setColorFilter(Color.WHITE);//设置颜色
 
 ![展示图](capture/elastic_ball.gif)
 
-[第七个，InfectionBallBuilder](http://zyao89.me/2017/03/27/Android自定义加载动画-颤抖吧！球球/)
+[第七个，InfectionBallBuilder](http://zyao89.me/2017/04/06/Android自定义加载动画-感染体/)
 
 ![展示图](capture/infection_ball.gif)
 
-[第八个，IntertwineBuilder](http://zyao89.me/2017/03/27/Android自定义加载动画-颤抖吧！球球/)
+[第八个，IntertwineBuilder](http://zyao89.me/2017/04/06/Android自定义加载动画-交织/)
 
 ![展示图](capture/intertwine.gif)

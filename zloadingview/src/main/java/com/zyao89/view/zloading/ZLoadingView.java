@@ -17,6 +17,7 @@ import android.widget.ImageView;
 public class ZLoadingView extends ImageView
 {
     private ZLoadingDrawable mZLoadingDrawable;
+    protected ZLoadingBuilder mZLoadingBuilder;
 
     public ZLoadingView(Context context)
     {
@@ -39,10 +40,10 @@ public class ZLoadingView extends ImageView
         try {
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ZLoadingView);
             int typeId = ta.getInt(R.styleable.ZLoadingView_z_type, 0);
-            int color = ta.getColor(R.styleable.ZLoadingView_z_color, Color.WHITE);
+            int color = ta.getColor(R.styleable.ZLoadingView_z_color, Color.BLACK);
+            ta.recycle();
             setLoadingBuilder(Z_TYPE.values()[typeId]);
             setColorFilter(color);
-            ta.recycle();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,7 +51,8 @@ public class ZLoadingView extends ImageView
 
     public void setLoadingBuilder(@NonNull Z_TYPE builder)
     {
-        mZLoadingDrawable = new ZLoadingDrawable(builder.newInstance());
+        mZLoadingBuilder = builder.newInstance();
+        mZLoadingDrawable = new ZLoadingDrawable(mZLoadingBuilder);
         mZLoadingDrawable.initParams(getContext());
         setImageDrawable(mZLoadingDrawable);
     }

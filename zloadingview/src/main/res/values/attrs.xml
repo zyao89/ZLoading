@@ -6,7 +6,16 @@
             <enum name="ClockBuilder" value="1"/>
             <enum name="StarBuilder" value="2"/>
             <enum name="LeafBuilder" value="3"/>
+            <enum name="DoubleCircleBuilder" value="4"/>
+            <enum name="PacManBuilder" value="5"/>
+            <enum name="ElasticBallBuilder" value="6"/>
+            <enum name="InfectionBallBuilder" value="7"/>
+            <enum name="IntertwineBuilder" value="8"/>
+            <enum name="TextBuilder" value="9"/>
         </attr>
         <attr name="z_color" format="color"/>
+    </declare-styleable>
+    <declare-styleable name="ZLoadingTextView">
+        <attr name="z_text" format="string"/>
     </declare-styleable>
 </resources>

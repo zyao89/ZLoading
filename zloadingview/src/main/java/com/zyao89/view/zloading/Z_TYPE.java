@@ -9,6 +9,7 @@ import com.zyao89.view.zloading.clock.CircleBuilder;
 import com.zyao89.view.zloading.clock.ClockBuilder;
 import com.zyao89.view.zloading.star.LeafBuilder;
 import com.zyao89.view.zloading.star.StarBuilder;
+import com.zyao89.view.zloading.text.TextBuilder;
 
 /**
  * Created by zyao89 on 2017/3/19.
@@ -27,6 +28,7 @@ public enum Z_TYPE
     ELASTIC_BALL(ElasticBallBuilder.class),
     INFECTION_BALL(InfectionBallBuilder.class),
     INTERTWINE(IntertwineBuilder.class),
+    TEXT(TextBuilder.class),
     ;
 
     private final Class<?> mBuilderClass;

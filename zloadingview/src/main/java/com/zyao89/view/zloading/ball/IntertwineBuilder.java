@@ -70,7 +70,7 @@ public class IntertwineBuilder extends BaseBallBuilder
     {
         switch (mCurrAnimatorState)
         {
-            case 0:
+            case 1:
                 animation.setInterpolator(new AccelerateInterpolator());
                 for (int i = 0; i < mBallPoints.size(); i++)
                 {
@@ -87,7 +87,7 @@ public class IntertwineBuilder extends BaseBallBuilder
                     }
                 }
                 break;
-            case 1:
+            case 0:
                 animation.setInterpolator(new AccelerateInterpolator());
                 for (int i = 0; i < mBallPoints.size(); i++)
                 {
