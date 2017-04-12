@@ -32,7 +32,7 @@ publish {
     userOrg = 'zyao89'//用户名
     groupId = 'com.zyao89'//路径
     artifactId = 'zloading'//项目名称
-    publishVersion = '1.0.1'//版本号
+    publishVersion = '1.0.2'//版本号
     desc = 'Oh hi, this is a nice view of loading animation, right?'//描述，不重要
     website = 'https://github.com/zyao89/ZCustomView'//网站，不重要；
 }

@@ -4,7 +4,7 @@
 ### 引入
 1. Gradle方式引用
 ```gradle
-compile 'com.zyao89:zloading:1.0.0'
+compile 'com.zyao89:zloading:1.0.2'
 ```
 
 ### 使用方式：
@@ -96,7 +96,7 @@ dialog.setLoadingBuilder(type)//设置类型
 
 ![展示图](capture/text_loading.gif)
 
-[第八个，SearchPathBuilder](http://zyao89.me/2017/04/06/Android自定义加载动画-交织/)
+[第八个，SearchPathBuilder](http://zyao89.me/2017/04/12/Android自定义加载动画-搜索等待/)
 
 ![展示图](capture/search_path.gif)
 
