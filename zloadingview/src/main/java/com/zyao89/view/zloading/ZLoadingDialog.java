@@ -51,19 +51,21 @@ public class ZLoadingDialog
         return this;
     }
 
+    public ZLoadingDialog setCancelable(boolean cancelable)
+    {
+        mCancelable = cancelable;
+        return this;
+    }
+
+    public ZLoadingDialog setCanceledOnTouchOutside(boolean canceledOnTouchOutside)
+    {
+        mCanceledOnTouchOutside = canceledOnTouchOutside;
+        return this;
+    }
+
     private View createContentView()
     {
         return View.inflate(this.mContext, R.layout.z_loading_dialog, null);
-    }
-
-    public void setCancelable(boolean cancelable)
-    {
-        mCancelable = cancelable;
-    }
-
-    public void setCanceledOnTouchOutside(boolean canceledOnTouchOutside)
-    {
-        mCanceledOnTouchOutside = canceledOnTouchOutside;
     }
 
     public Dialog create()

@@ -7,6 +7,7 @@ import com.zyao89.view.zloading.circle.DoubleCircleBuilder;
 import com.zyao89.view.zloading.circle.PacManBuilder;
 import com.zyao89.view.zloading.clock.CircleBuilder;
 import com.zyao89.view.zloading.clock.ClockBuilder;
+import com.zyao89.view.zloading.path.SearchPathBuilder;
 import com.zyao89.view.zloading.star.LeafBuilder;
 import com.zyao89.view.zloading.star.StarBuilder;
 import com.zyao89.view.zloading.text.TextBuilder;
@@ -29,6 +30,7 @@ public enum Z_TYPE
     INFECTION_BALL(InfectionBallBuilder.class),
     INTERTWINE(IntertwineBuilder.class),
     TEXT(TextBuilder.class),
+    SEARCH_PATH(SearchPathBuilder.class),
     ;
 
     private final Class<?> mBuilderClass;

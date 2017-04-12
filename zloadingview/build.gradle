@@ -29,10 +29,10 @@ dependencies {
 }
 
 publish {
-    userOrg = 'zyao89'//bintray.com用户名
-    groupId = 'com.zyao89'//jcenter上的路径
+    userOrg = 'zyao89'//用户名
+    groupId = 'com.zyao89'//路径
     artifactId = 'zloading'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = 'Oh hi, this is a nice description for a project, right?'//描述，不重要
+    publishVersion = '1.0.1'//版本号
+    desc = 'Oh hi, this is a nice view of loading animation, right?'//描述，不重要
     website = 'https://github.com/zyao89/ZCustomView'//网站，不重要；
 }

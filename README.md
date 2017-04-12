@@ -1,6 +1,12 @@
 # ZCustomView
 这是一个自定义控件合集。目前包含Loading View。持续更新中...
 
+### 引入
+1. Gradle方式引用
+```gradle
+compile 'com.zyao89:zloading:1.0.0'
+```
+
 ### 使用方式：
 1. XML:
 ```xml
@@ -49,6 +55,7 @@ dialog.setLoadingBuilder(type)//设置类型
 7|InfectionBallBuilder | INFECTION_BALL
 8|IntertwineBuilder | INTERTWINE
 9|TextBuilder | TEXT
+10|SearchPathBuilder | SEARCH_PATH
 
 
 ### 效果图如下
@@ -84,6 +91,14 @@ dialog.setLoadingBuilder(type)//设置类型
 [第八个，IntertwineBuilder](http://zyao89.me/2017/04/06/Android自定义加载动画-交织/)
 
 ![展示图](capture/intertwine.gif)
+
+[第九个，TextBuilder]
+
+![展示图](capture/text_loading.gif)
+
+[第八个，SearchPathBuilder](http://zyao89.me/2017/04/06/Android自定义加载动画-交织/)
+
+![展示图](capture/search_path.gif)
 
 
 ### License

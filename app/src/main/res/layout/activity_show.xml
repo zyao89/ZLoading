@@ -147,4 +147,23 @@
 
     </LinearLayout>
 
+    <!--<com.zyao89.zcustomview.loading.ClockLoading-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"/>-->
+
+    <!--<com.zyao89.view.zloading.ZLoadingView-->
+    <!--app:z_type="CircleBuilder"-->
+    <!--android:layout_width="100dp"-->
+    <!--android:layout_height="100dp"/>-->
+
+    <!--<com.zyao89.view.zloading.ZLoadingView-->
+    <!--app:z_type="ClockBuilder"-->
+    <!--android:layout_width="200dp"-->
+    <!--android:layout_height="200dp"/>-->
+
+    <!--<com.zyao89.view.zloading.ZLoadingView-->
+    <!--app:z_type="ClockBuilder"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"/>-->
+
 </RelativeLayout>
