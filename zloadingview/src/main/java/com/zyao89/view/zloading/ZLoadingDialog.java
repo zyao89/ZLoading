@@ -6,6 +6,8 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 
+import java.lang.ref.WeakReference;
+
 /**
  * Created by zyao89 on 2017/4/9.
  * Contact me at 305161066@qq.com or zyao89@gmail.com
@@ -14,13 +16,14 @@ import android.view.View;
  */
 public class ZLoadingDialog
 {
-    private final Context mContext;
-    private final int     mThemeResId;
-    private       Z_TYPE  mLoadingBuilderType;
-    private       int     mLoadingBuilderColor;
-    private       String  mHintText;
+    private final WeakReference<Context> mContext;
+    private final int                    mThemeResId;
+    private       Z_TYPE                 mLoadingBuilderType;
+    private       int                    mLoadingBuilderColor;
+    private       String                 mHintText;
     private boolean mCancelable             = true;
     private boolean mCanceledOnTouchOutside = true;
+    private Dialog mZLoadingDialog;
 
     public ZLoadingDialog(@NonNull Context context)
     {
@@ -29,7 +32,7 @@ public class ZLoadingDialog
 
     public ZLoadingDialog(@NonNull Context context, int themeResId)
     {
-        this.mContext = context;
+        this.mContext = new WeakReference<>(context);
         this.mThemeResId = themeResId;
     }
 
@@ -63,14 +66,26 @@ public class ZLoadingDialog
         return this;
     }
 
-    private View createContentView()
+    private @NonNull View createContentView()
     {
-        return View.inflate(this.mContext, R.layout.z_loading_dialog, null);
+        if (isContextNotExist())
+        {
+            throw new RuntimeException("Context is null...");
+        }
+        return View.inflate(this.mContext.get(), R.layout.z_loading_dialog, null);
     }
 
     public Dialog create()
     {
-        final Dialog zLoadingDialog = new Dialog(this.mContext, this.mThemeResId);
+        if (isContextNotExist())
+        {
+            throw new RuntimeException("Context is null...");
+        }
+        if (mZLoadingDialog != null)
+        {
+            cancel();
+        }
+        mZLoadingDialog = new Dialog(this.mContext.get(), this.mThemeResId);
         View contentView = createContentView();
         ZLoadingView zLoadingView = (ZLoadingView) contentView.findViewById(R.id.z_loading_view);
         ZLoadingTextView zTextView = (ZLoadingTextView) contentView.findViewById(R.id.z_text_view);
@@ -81,16 +96,42 @@ public class ZLoadingDialog
         }
         zLoadingView.setLoadingBuilder(this.mLoadingBuilderType);
         zLoadingView.setColorFilter(this.mLoadingBuilderColor);
-        zLoadingDialog.setContentView(contentView);
-        zLoadingDialog.setCancelable(mCancelable);
-        zLoadingDialog.setCanceledOnTouchOutside(mCanceledOnTouchOutside);
-        return zLoadingDialog;
+        mZLoadingDialog.setContentView(contentView);
+        mZLoadingDialog.setCancelable(this.mCancelable);
+        mZLoadingDialog.setCanceledOnTouchOutside(this.mCanceledOnTouchOutside);
+        return mZLoadingDialog;
     }
 
-    public Dialog show()
+    public void show()
     {
-        final Dialog zLoadingDialog = create();
-        zLoadingDialog.show();
-        return zLoadingDialog;
+        if (mZLoadingDialog != null)
+        {
+            mZLoadingDialog.show();
+        }
+        else
+        {
+            final Dialog zLoadingDialog = create();
+            zLoadingDialog.show();
+        }
+    }
+
+    public void cancel()
+    {
+        if (mZLoadingDialog != null)
+        {
+            mZLoadingDialog.cancel();
+        }
+        mZLoadingDialog = null;
+    }
+
+    public void dismiss()
+    {
+        cancel();
+    }
+
+    private boolean isContextNotExist()
+    {
+        Context context = this.mContext.get();
+        return context == null;
     }
 }
