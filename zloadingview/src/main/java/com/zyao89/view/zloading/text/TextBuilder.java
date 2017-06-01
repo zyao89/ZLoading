@@ -106,7 +106,7 @@ public class TextBuilder extends ZLoadingBuilder
             return;
         }
         float measureText = mTextPaint.measureText(text);
-        if (measureText > getIntrinsicWidth())
+        if (measureText >= getIntrinsicWidth())
         {
             float v = measureText / DEFAULT_SIZE;
             mTextPaint.setTextSize(getIntrinsicWidth() / v);

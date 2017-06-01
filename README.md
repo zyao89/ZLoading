@@ -4,7 +4,7 @@
 ### 引入
 1. Gradle方式引用
 ```gradle
-compile 'com.zyao89:zloading:1.0.2'
+compile 'com.zyao89:zloading:1.0.5'
 ```
 
 ### 使用方式：

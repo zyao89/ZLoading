@@ -5,6 +5,7 @@ import com.zyao89.view.zloading.ball.InfectionBallBuilder;
 import com.zyao89.view.zloading.ball.IntertwineBuilder;
 import com.zyao89.view.zloading.circle.DoubleCircleBuilder;
 import com.zyao89.view.zloading.circle.PacManBuilder;
+import com.zyao89.view.zloading.circle.RotateCircleBuilder;
 import com.zyao89.view.zloading.clock.CircleBuilder;
 import com.zyao89.view.zloading.clock.ClockBuilder;
 import com.zyao89.view.zloading.path.SearchPathBuilder;
@@ -31,6 +32,7 @@ public enum Z_TYPE
     INTERTWINE(IntertwineBuilder.class),
     TEXT(TextBuilder.class),
     SEARCH_PATH(SearchPathBuilder.class),
+    ROTATE_CIRCLE(RotateCircleBuilder.class),
     ;
 
     private final Class<?> mBuilderClass;

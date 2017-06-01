@@ -27,6 +27,7 @@ abstract class BaseBallBuilder extends ZLoadingBuilder
 
     /**
      * 初始化画笔
+     * @param lineWidth 线宽
      */
     protected void initPaint(float lineWidth)
     {
@@ -52,6 +53,8 @@ abstract class BaseBallBuilder extends ZLoadingBuilder
      * p1                      p5
      * ------  ------
      * p2      p3      p4
+     *
+     * @param ballR 半径
      */
     protected final void initPoints(float ballR)
     {
