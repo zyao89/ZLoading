@@ -28,11 +28,20 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.2.0'
 }
 
+//publish {
+//    userOrg = 'zyao89'//用户名
+//    groupId = 'com.zyao89'//路径
+//    artifactId = 'zloading'//项目名称
+//    publishVersion = '1.0.6'//版本号
+//    desc = 'Oh hi, this is a nice view of loading animation, right?'//描述，不重要
+//    website = 'https://github.com/zyao89/ZCustomView'//网站，不重要；
+//}
+
 publish {
-    userOrg = 'zyao89'//用户名
-    groupId = 'com.zyao89'//路径
-    artifactId = 'zloading'//项目名称
-    publishVersion = '1.0.5'//版本号
+    userOrg = "${USER_ORG}"
+    groupId = "${GROUP_ID}"
+    artifactId = "${ARTIFACT_ID}"
+    publishVersion = "${PUBLISH_VERSION}"
     desc = 'Oh hi, this is a nice view of loading animation, right?'//描述，不重要
     website = 'https://github.com/zyao89/ZCustomView'//网站，不重要；
 }

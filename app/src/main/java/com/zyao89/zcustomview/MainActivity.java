@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity
                         dialog.setLoadingBuilder(type)
                                 .setLoadingColor(Color.BLACK)
                                 .setHintText("Loading...")
+                                .setHintTextSize(16) // 设置字体大小
+                                .setHintTextColor(Color.GRAY)  // 设置字体颜色
                                 .show();
                         break;
                 }

@@ -4,8 +4,11 @@
 ### 引入
 1. Gradle方式引用
 ```gradle
-compile 'com.zyao89:zloading:1.0.5'
+compile 'com.zyao89:zloading:1.0.6'
 ```
+
+### 更新说明
+> - **1.0.6** 增加字号设置，颜色设置， 解决[#2](https://github.com/zyao89/ZLoading/issues/2)
 
 ### 使用方式：
 1. XML:
@@ -32,6 +35,8 @@ ZLoadingDialog dialog = new ZLoadingDialog(MainActivity.this);
 dialog.setLoadingBuilder(type)//设置类型
         .setLoadingColor(Color.BLACK)//颜色
         .setHintText("Loading...")
+        .setHintTextSize(16) // 设置字体大小 dp
+        .setHintTextColor(Color.GRAY)  // 设置字体颜色
         .show();
 ```
 

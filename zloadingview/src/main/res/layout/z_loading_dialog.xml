@@ -25,4 +25,13 @@
         android:layout_height="wrap_content"
         android:visibility="gone"/>
 
+    <TextView
+        android:id="@+id/z_custom_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
+        android:lines="1"
+        android:visibility="gone"/>
+
 </LinearLayout>

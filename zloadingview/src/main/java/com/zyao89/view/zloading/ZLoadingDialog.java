@@ -4,7 +4,9 @@ import android.app.Dialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
 
@@ -21,6 +23,8 @@ public class ZLoadingDialog
     private       Z_TYPE                 mLoadingBuilderType;
     private       int                    mLoadingBuilderColor;
     private       String                 mHintText;
+    private float     mHintTextSize           = -1;
+    private int     mHintTextColor           = -1;
     private boolean mCancelable             = true;
     private boolean mCanceledOnTouchOutside = true;
     private Dialog mZLoadingDialog;
@@ -54,6 +58,22 @@ public class ZLoadingDialog
         return this;
     }
 
+    /**
+     * 设置了大小后，字就不会有动画了。
+     * @param size 大小
+     * @return
+     */
+    public ZLoadingDialog setHintTextSize(float size)
+    {
+        this.mHintTextSize = size;
+        return this;
+    }
+
+    public ZLoadingDialog setHintTextColor(int color) {
+        this.mHintTextColor = color;
+        return this;
+    }
+
     public ZLoadingDialog setCancelable(boolean cancelable)
     {
         mCancelable = cancelable;
@@ -66,7 +86,9 @@ public class ZLoadingDialog
         return this;
     }
 
-    private @NonNull View createContentView()
+    private
+    @NonNull
+    View createContentView()
     {
         if (isContextNotExist())
         {
@@ -89,10 +111,18 @@ public class ZLoadingDialog
         View contentView = createContentView();
         ZLoadingView zLoadingView = (ZLoadingView) contentView.findViewById(R.id.z_loading_view);
         ZLoadingTextView zTextView = (ZLoadingTextView) contentView.findViewById(R.id.z_text_view);
-        if (!TextUtils.isEmpty(mHintText))
+        TextView zCustomTextView = (TextView) contentView.findViewById(R.id.z_custom_text_view);
+        if (this.mHintTextSize > 0 && !TextUtils.isEmpty(mHintText))
+        {
+            zCustomTextView.setVisibility(View.VISIBLE);
+            zCustomTextView.setText(mHintText);
+            zCustomTextView.setTextSize(this.mHintTextSize);
+            zCustomTextView.setTextColor(this.mHintTextColor == -1 ? this.mLoadingBuilderColor : this.mHintTextColor);
+        } else if (!TextUtils.isEmpty(mHintText))
         {
             zTextView.setVisibility(View.VISIBLE);
             zTextView.setText(mHintText);
+            zTextView.setColorFilter(this.mHintTextColor == -1 ? this.mLoadingBuilderColor : this.mHintTextColor);
         }
         zLoadingView.setLoadingBuilder(this.mLoadingBuilderType);
         zLoadingView.setColorFilter(this.mLoadingBuilderColor);
