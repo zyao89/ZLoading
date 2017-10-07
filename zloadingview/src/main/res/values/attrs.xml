@@ -12,6 +12,9 @@
             <enum name="InfectionBallBuilder" value="7"/>
             <enum name="IntertwineBuilder" value="8"/>
             <enum name="TextBuilder" value="9"/>
+            <enum name="SearchPathBuilder" value="10"/>
+            <enum name="RotateCircleBuilder" value="11"/>
+            <enum name="SingleCircleBuilder" value="12"/>
         </attr>
         <attr name="z_color" format="color"/>
     </declare-styleable>

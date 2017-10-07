@@ -49,7 +49,6 @@ public class ZLoadingTextView extends ZLoadingView
     public void setText(String text)
     {
         this.mText = text;
-        super.setLoadingBuilder(Z_TYPE.TEXT);
         if (mZLoadingBuilder instanceof TextBuilder)
         {
             ((TextBuilder) mZLoadingBuilder).setText(mText);
@@ -58,6 +57,7 @@ public class ZLoadingTextView extends ZLoadingView
 
     private void init(Context context, AttributeSet attrs)
     {
+        super.setLoadingBuilder(Z_TYPE.TEXT);
         try
         {
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ZLoadingTextView);
@@ -67,11 +67,17 @@ public class ZLoadingTextView extends ZLoadingView
             {
                 this.mText = text;
             }
-            setText(mText);
         }
         catch (Exception e)
         {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void onAttachedToWindow()
+    {
+        setText(mText);
+        super.onAttachedToWindow();
     }
 }

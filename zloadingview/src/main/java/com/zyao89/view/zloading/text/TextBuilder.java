@@ -25,7 +25,7 @@ public class TextBuilder extends ZLoadingBuilder
     private static final int BASE_ALPHA = 100;
     private static final String DEFAULT_TEXT = "Zyao89";
     private Paint  mTextPaint;
-    private char[] mTextChars;
+    private String mTextChars;
     private int mDrawTextCount = 0;
 
     @Override
@@ -40,7 +40,7 @@ public class TextBuilder extends ZLoadingBuilder
         mTextPaint.setTextAlign(Paint.Align.LEFT);
 
         //默认值
-        mTextChars = DEFAULT_TEXT.toCharArray();
+        mTextChars = DEFAULT_TEXT;
     }
 
     @Override
@@ -48,10 +48,11 @@ public class TextBuilder extends ZLoadingBuilder
     {
         if (isNotEmpty())
         {
-            float measureText = mTextPaint.measureText(mTextChars, 0, mTextChars.length);
+            int length = mTextChars.toCharArray().length;
+            float measureText = mTextPaint.measureText(mTextChars, 0, length);
             Paint paint = new Paint(mTextPaint);
             paint.setAlpha(BASE_ALPHA);
-            canvas.drawText(mTextChars, 0, mTextChars.length, getViewCenterX() - measureText / 2, getViewCenterY(), paint);
+            canvas.drawText(mTextChars, 0, length, getViewCenterX() - measureText / 2, getViewCenterY(), paint);
             canvas.drawText(mTextChars, 0, mDrawTextCount, getViewCenterX() - measureText / 2, getViewCenterY(), mTextPaint);
         }
     }
@@ -86,7 +87,7 @@ public class TextBuilder extends ZLoadingBuilder
     {
         if (isNotEmpty())
         {
-            if (++mDrawTextCount > mTextChars.length)
+            if (++mDrawTextCount > mTextChars.toCharArray().length)
             {//还原到第一阶段
                 mDrawTextCount = 0;
             }
@@ -111,11 +112,11 @@ public class TextBuilder extends ZLoadingBuilder
             float v = measureText / DEFAULT_SIZE;
             mTextPaint.setTextSize(getIntrinsicWidth() / v);
         }
-        mTextChars = text.toCharArray();
+        mTextChars = text;
     }
 
     private boolean isNotEmpty()
     {
-        return mTextChars != null && mTextChars.length > 0;
+        return mTextChars != null && !mTextChars.isEmpty();
     }
 }

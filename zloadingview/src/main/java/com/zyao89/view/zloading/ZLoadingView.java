@@ -16,8 +16,8 @@ import android.widget.ImageView;
  */
 public class ZLoadingView extends ImageView
 {
-    private ZLoadingDrawable mZLoadingDrawable;
-    protected ZLoadingBuilder mZLoadingBuilder;
+    private   ZLoadingDrawable mZLoadingDrawable;
+    protected ZLoadingBuilder  mZLoadingBuilder;
 
     public ZLoadingView(Context context)
     {

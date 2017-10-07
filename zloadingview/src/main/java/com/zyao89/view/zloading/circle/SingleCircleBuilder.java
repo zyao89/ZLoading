@@ -1,5 +1,6 @@
 package com.zyao89.view.zloading.circle;
 
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
@@ -12,20 +13,24 @@ import android.support.annotation.FloatRange;
 import com.zyao89.view.zloading.ZLoadingBuilder;
 
 /**
- * Created by zyao89 on 2017/3/23.
+ * Created by zyao89 on 2017/10/2.
  * Contact me at 305161066@qq.com or zyao89@gmail.com
  * For more projects: https://github.com/zyao89
  * My Blog: https://zyao89.cn
  */
-public class DoubleCircleBuilder extends ZLoadingBuilder
+public class SingleCircleBuilder extends ZLoadingBuilder
 {
-    private static final int OUTER_CIRCLE_ANGLE = 270;
-    private static final int INTER_CIRCLE_ANGLE = 90;
+    private static final int OUTER_CIRCLE_ANGLE = 320;
+    //最终阶段
+    private static final int FINAL_STATE        = 2;
+    //当前动画阶段
+    private              int mCurrAnimatorState = 0;
     private Paint mStrokePaint;
     private RectF mOuterCircleRectF;
-    private RectF mInnerCircleRectF;
+    //旋转开始角度
+    private int   mStartRotateAngle;
     //旋转角度
-    private int mRotateAngle;
+    private int   mRotateAngle;
 
     @Override
     protected void initParams(Context context)
@@ -37,13 +42,10 @@ public class DoubleCircleBuilder extends ZLoadingBuilder
         //初始化画笔
         initPaint(inR * 0.4f);
         //旋转角度
-        mRotateAngle = 0;
+        mStartRotateAngle = 0;
         //圆范围
         mOuterCircleRectF = new RectF();
         mOuterCircleRectF.set(getViewCenterX() - outR, getViewCenterY() - outR, getViewCenterX() + outR, getViewCenterY() + outR);
-        mInnerCircleRectF = new RectF();
-        mInnerCircleRectF.set(getViewCenterX() - inR, getViewCenterY() - inR, getViewCenterX() + inR, getViewCenterY() + inR);
-
     }
 
     /**
@@ -66,9 +68,7 @@ public class DoubleCircleBuilder extends ZLoadingBuilder
     {
         canvas.save();
         //外圆
-        canvas.drawArc(mOuterCircleRectF, mRotateAngle % 360, OUTER_CIRCLE_ANGLE, false, mStrokePaint);
-        //内圆
-        canvas.drawArc(mInnerCircleRectF, 270 - mRotateAngle % 360, INTER_CIRCLE_ANGLE, false, mStrokePaint);
+        canvas.drawArc(mOuterCircleRectF, mStartRotateAngle % 360, mRotateAngle % 360, false, mStrokePaint);
         canvas.restore();
     }
 
@@ -93,7 +93,27 @@ public class DoubleCircleBuilder extends ZLoadingBuilder
     @Override
     protected void computeUpdateValue(ValueAnimator animation, @FloatRange(from = 0.0, to = 1.0) float animatedValue)
     {
-        mRotateAngle = (int) (360 * animatedValue);
+        mStartRotateAngle = (int) (360 * animatedValue);
+        switch (mCurrAnimatorState)
+        {
+            case 0:
+                mRotateAngle = (int) (OUTER_CIRCLE_ANGLE * animatedValue);
+                break;
+            case 1:
+                mRotateAngle = OUTER_CIRCLE_ANGLE - (int) (OUTER_CIRCLE_ANGLE * animatedValue);
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onAnimationRepeat(Animator animation)
+    {
+        if (++mCurrAnimatorState > FINAL_STATE)
+        {//还原到第一阶段
+            mCurrAnimatorState = 0;
+        }
     }
 
     @Override

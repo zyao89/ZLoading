@@ -4,11 +4,15 @@
 ### 引入
 1. Gradle方式引用
 ```gradle
-compile 'com.zyao89:zloading:1.0.6'
+compile 'com.zyao89:zloading:1.0.7'
 ```
 
 ### 更新说明
 > - **1.0.6** 增加字号设置，颜色设置， 解决[#2](https://github.com/zyao89/ZLoading/issues/2)
+    补充说明：设置字号后，提示文字不再有动画
+> - **1.0.7** 新增 SINGLE_CIRCLE 类型动画， 
+    修复 TEXT 类型简单缺陷。
+    增加 TEXT、RotateCircleBuilder 类型的使用说明。
 
 ### 使用方式：
 1. XML:
@@ -61,6 +65,8 @@ dialog.setLoadingBuilder(type)//设置类型
 8|IntertwineBuilder | INTERTWINE
 9|TextBuilder | TEXT
 10|SearchPathBuilder | SEARCH_PATH
+11|RotateCircleBuilder | ROTATE_CIRCLE
+12|SingleCircleBuilder | SINGLE_CIRCLE
 
 
 ### 效果图如下
@@ -69,41 +75,49 @@ dialog.setLoadingBuilder(type)//设置类型
 
 ![展示图](capture/circle_loading.gif)
 
-[第二个，StarBuilder](http://zyao89.github.io/2017/03/22/Android自定义动画-StarLoadingView/)
+[第二个，StarBuilder](https://www.zyao89.cn/article/59aedad0d6571857538cdd4c)
 
 ![展示图](capture/star_loading.gif)
 
-[第三个，LeafBuilder](http://zyao89.me/2017/03/22/旋转的叶子-LeafLoadingView/)
+[第三个，LeafBuilder](https://www.zyao89.cn/article/59aedc12d6571857538cdd4d)
 
 ![展示图](capture/leaf_loading.gif)
 
-[第四个，DoubleCircleBuilder](http://zyao89.me/2017/03/25/Android自定义加载动画-DoubleCircleBuilder/)
+[第四个，DoubleCircleBuilder](https://www.zyao89.cn/article/59aedca4d6571857538cdd4e)
 
 ![展示图](capture/double_circle.gif)
 
-[第五个，PacManBuilder](http://zyao89.me/2017/03/26/Android自定义加载动画-PacMan/)
+[第五个，PacManBuilder](https://www.zyao89.cn/article/59aedd70d6571857538cdd4f)
 
 ![展示图](capture/pac_man.gif)
 
-[第六个，ElasticBallBuilder](http://zyao89.me/2017/03/27/Android自定义加载动画-颤抖吧！球球/)
+[第六个，ElasticBallBuilder](https://www.zyao89.cn/article/59b3bd65d6571857538cdd54)
 
 ![展示图](capture/elastic_ball.gif)
 
-[第七个，InfectionBallBuilder](http://zyao89.me/2017/04/06/Android自定义加载动画-感染体/)
+[第七个，InfectionBallBuilder](https://www.zyao89.cn/article/59c784d85582770263c49039)
 
 ![展示图](capture/infection_ball.gif)
 
-[第八个，IntertwineBuilder](http://zyao89.me/2017/04/06/Android自定义加载动画-交织/)
+[第八个，IntertwineBuilder](https://www.zyao89.cn/article/59c791785582770263c4903a)
 
 ![展示图](capture/intertwine.gif)
 
-[第九个，TextBuilder]
+[第九个，TextBuilder](https://www.zyao89.cn/article/59d906aa87737d05bab021f5)
 
 ![展示图](capture/text_loading.gif)
 
-[第八个，SearchPathBuilder](http://zyao89.me/2017/04/12/Android自定义加载动画-搜索等待/)
+[第十个，SearchPathBuilder](https://www.zyao89.cn/article/59c79b7f5582770263c4903b)
 
 ![展示图](capture/search_path.gif)
+
+[第十一个，RotateCircleBuilder](https://www.zyao89.cn/article/59d927aa43824776ebc77825)
+
+![展示图](capture/rotate_circle.gif)
+
+[第十二个，SingleCircleBuilder](https://www.zyao89.cn/article/59d9284f43824776ebc77826)
+
+![展示图](capture/single_circle.gif)
 
 
 ### License

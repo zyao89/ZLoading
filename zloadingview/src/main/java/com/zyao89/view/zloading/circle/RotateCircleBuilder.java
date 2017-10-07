@@ -14,7 +14,7 @@ import com.zyao89.view.zloading.ZLoadingBuilder;
  * Created by zyao89 on 2017/4/24.
  * Contact me at 305161066@qq.com or zyao89@gmail.com
  * For more projects: https://github.com/zyao89
- * My Blog: http://zyao89.me
+ * My Blog: https://zyao89.cn
  */
 public class RotateCircleBuilder extends ZLoadingBuilder
 {

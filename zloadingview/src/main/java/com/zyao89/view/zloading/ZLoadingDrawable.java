@@ -8,6 +8,8 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 
+import com.zyao89.view.zloading.ZLoadingBuilder;
+
 /**
  * Created by zyao89 on 2017/3/19.
  * Contact me at 305161066@qq.com or zyao89@gmail.com

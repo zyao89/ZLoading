@@ -156,7 +156,11 @@ public class ZLoadingDialog
 
     public void dismiss()
     {
-        cancel();
+        if (mZLoadingDialog != null)
+        {
+            mZLoadingDialog.dismiss();
+        }
+        mZLoadingDialog = null;
     }
 
     private boolean isContextNotExist()
