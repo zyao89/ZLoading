@@ -55,20 +55,20 @@ dialog.setLoadingBuilder(type)//设置类型
 ### 目前拥有的类型：
 索引 | 名称 | 枚举值（Z_TYPE）
 :------:|:------:|:------:
-0|CircleBuilder | CIRCLE
-1|ClockBuilder | CIRCLE_CLOCK
-2|StarBuilder | STAR_LOADING
-3|LeafBuilder | LEAF_ROTATE
-4|DoubleCircleBuilder | DOUBLE_CIRCLE
-5|PacManBuilder | PAC_MAN
-6|ElasticBallBuilder | ELASTIC_BALL
-7|InfectionBallBuilder | INFECTION_BALL
-8|IntertwineBuilder | INTERTWINE
-9|TextBuilder | TEXT
-10|SearchPathBuilder | SEARCH_PATH
-11|RotateCircleBuilder | ROTATE_CIRCLE
-12|SingleCircleBuilder | SINGLE_CIRCLE
-13|SnakeCircleBuilder | SNAKE_CIRCLE
+0|CircleBuilder | CIRCLE | 圆
+1|ClockBuilder | CIRCLE_CLOCK | 计时器
+2|StarBuilder | STAR_LOADING | 跳舞的星星
+3|LeafBuilder | LEAF_ROTATE | 旋转的叶子
+4|DoubleCircleBuilder | DOUBLE_CIRCLE | 画两个圈圈
+5|PacManBuilder | PAC_MAN | PacMan
+6|ElasticBallBuilder | ELASTIC_BALL | 颤抖吧！球球
+7|InfectionBallBuilder | INFECTION_BALL | 感染体
+8|IntertwineBuilder | INTERTWINE | 交织
+9|TextBuilder | TEXT | 文字
+10|SearchPathBuilder | SEARCH_PATH | 搜索等待
+11|RotateCircleBuilder | ROTATE_CIRCLE | 多圆旋转
+12|SingleCircleBuilder | SINGLE_CIRCLE | 单圆简单动画
+13|SnakeCircleBuilder | SNAKE_CIRCLE | 引蛇出洞
 
 
 ### 效果图如下
@@ -122,6 +122,8 @@ dialog.setLoadingBuilder(type)//设置类型
 ![展示图](capture/single_circle.gif)
 
 [第十三个，SnakeCircleBuilder](https://www.zyao89.cn/article/)
+
+![展示图](capture/snake_circle.gif)
 
 
 ### License
