@@ -17,6 +17,8 @@ import com.zyao89.view.zloading.ZLoadingDialog;
 import com.zyao89.view.zloading.Z_TYPE;
 import com.zyao89.zcustomview.loading.ShowActivity;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity
 {
     private              int    mSelectedItemIndex = 1;
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity
             int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
             button.setPadding(padding, padding, padding, padding);
             containerLinearLayout.addView(button, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            button.setText(String.format("%s LOADING", type.name()));
+            button.setText(String.format(Locale.getDefault(), "【%d】%s LOADING", type.ordinal(), type.name()));
             setupListener(button, type);
         }
     }

@@ -4,7 +4,7 @@
 ### 引入
 1. Gradle方式引用
 ```gradle
-compile 'com.zyao89:zloading:1.0.7'
+compile 'com.zyao89:zloading:1.0.8'
 ```
 
 ### 更新说明
@@ -13,6 +13,7 @@ compile 'com.zyao89:zloading:1.0.7'
 > - **1.0.7** 新增 SINGLE_CIRCLE 类型动画， 
     修复 TEXT 类型简单缺陷。
     增加 TEXT、RotateCircleBuilder 类型的使用说明。
+> - **1.0.8** 新增 SNAKE_CIRCLE 类型动画（详细见下方展示图）。
 
 ### 使用方式：
 1. XML:
@@ -67,6 +68,7 @@ dialog.setLoadingBuilder(type)//设置类型
 10|SearchPathBuilder | SEARCH_PATH
 11|RotateCircleBuilder | ROTATE_CIRCLE
 12|SingleCircleBuilder | SINGLE_CIRCLE
+13|SnakeCircleBuilder | SNAKE_CIRCLE
 
 
 ### 效果图如下
@@ -118,6 +120,8 @@ dialog.setLoadingBuilder(type)//设置类型
 [第十二个，SingleCircleBuilder](https://www.zyao89.cn/article/59d9284f43824776ebc77826)
 
 ![展示图](capture/single_circle.gif)
+
+[第十三个，SnakeCircleBuilder](https://www.zyao89.cn/article/)
 
 
 ### License

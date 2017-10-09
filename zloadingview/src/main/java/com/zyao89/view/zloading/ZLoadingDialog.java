@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 
@@ -23,8 +22,8 @@ public class ZLoadingDialog
     private       Z_TYPE                 mLoadingBuilderType;
     private       int                    mLoadingBuilderColor;
     private       String                 mHintText;
-    private float     mHintTextSize           = -1;
-    private int     mHintTextColor           = -1;
+    private float   mHintTextSize           = -1;
+    private int     mHintTextColor          = -1;
     private boolean mCancelable             = true;
     private boolean mCanceledOnTouchOutside = true;
     private Dialog mZLoadingDialog;
@@ -60,6 +59,7 @@ public class ZLoadingDialog
 
     /**
      * 设置了大小后，字就不会有动画了。
+     *
      * @param size 大小
      * @return
      */
@@ -69,7 +69,8 @@ public class ZLoadingDialog
         return this;
     }
 
-    public ZLoadingDialog setHintTextColor(int color) {
+    public ZLoadingDialog setHintTextColor(int color)
+    {
         this.mHintTextColor = color;
         return this;
     }
@@ -118,7 +119,8 @@ public class ZLoadingDialog
             zCustomTextView.setText(mHintText);
             zCustomTextView.setTextSize(this.mHintTextSize);
             zCustomTextView.setTextColor(this.mHintTextColor == -1 ? this.mLoadingBuilderColor : this.mHintTextColor);
-        } else if (!TextUtils.isEmpty(mHintText))
+        }
+        else if (!TextUtils.isEmpty(mHintText))
         {
             zTextView.setVisibility(View.VISIBLE);
             zTextView.setText(mHintText);

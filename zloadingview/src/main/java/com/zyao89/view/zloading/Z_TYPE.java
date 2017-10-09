@@ -10,6 +10,7 @@ import com.zyao89.view.zloading.circle.SingleCircleBuilder;
 import com.zyao89.view.zloading.clock.CircleBuilder;
 import com.zyao89.view.zloading.clock.ClockBuilder;
 import com.zyao89.view.zloading.path.SearchPathBuilder;
+import com.zyao89.view.zloading.circle.SnakeCircleBuilder;
 import com.zyao89.view.zloading.star.LeafBuilder;
 import com.zyao89.view.zloading.star.StarBuilder;
 import com.zyao89.view.zloading.text.TextBuilder;
@@ -35,6 +36,7 @@ public enum Z_TYPE
     SEARCH_PATH(SearchPathBuilder.class),
     ROTATE_CIRCLE(RotateCircleBuilder.class),
     SINGLE_CIRCLE(SingleCircleBuilder.class),
+    SNAKE_CIRCLE(SnakeCircleBuilder.class),
     ;
 
     private final Class<?> mBuilderClass;
