@@ -121,7 +121,7 @@ dialog.setLoadingBuilder(type)//设置类型
 
 ![展示图](capture/single_circle.gif)
 
-[第十三个，SnakeCircleBuilder](https://www.zyao89.cn/article/)
+[第十三个，SnakeCircleBuilder](https://www.zyao89.cn/article/59e3826d86f97804a8dfceab)
 
 ![展示图](capture/snake_circle.gif)
 
