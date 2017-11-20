@@ -1,10 +1,9 @@
 *.iml
 .gradle
 /local.properties
-/gradle.properties
+/gradle
 /.idea
 .DS_Store
 /build
-/captures
 .externalNativeBuild
 updateJcenter
