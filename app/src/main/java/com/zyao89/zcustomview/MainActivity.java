@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.zyao89.view.zloading.ZLoadingDialog;
 import com.zyao89.view.zloading.Z_TYPE;
 import com.zyao89.zcustomview.loading.ShowActivity;
+import com.zyao89.zcustomview.loading.ShowTimeAllActivity;
 
 import java.util.Locale;
 
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         LinearLayout containerLinearLayout = (LinearLayout) findViewById(R.id.container);
+        createAllButton(containerLinearLayout);
         createButtons(containerLinearLayout);
     }
 
@@ -63,6 +65,23 @@ public class MainActivity extends AppCompatActivity
         mToast.show();
         mSelectedItemIndex = item.getItemId();
         return super.onOptionsItemSelected(item);
+    }
+
+    private void createAllButton(LinearLayout containerLinearLayout)
+    {
+        AppCompatButton button = new AppCompatButton(this);
+        int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics());
+        button.setPadding(padding, padding, padding, padding);
+        containerLinearLayout.addView(button, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        button.setText("Show Time");
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(MainActivity.this, ShowTimeAllActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void createButtons(LinearLayout containerLinearLayout)

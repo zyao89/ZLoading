@@ -48,7 +48,7 @@ dialog.setLoadingBuilder(type)//设置类型
 
 效果如下：
 
-![效果图](capture/zLoadingDialog.gif)
+![效果图](capture/zLoading.gif)
 
 
 ---

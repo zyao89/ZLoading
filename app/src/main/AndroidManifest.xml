@@ -15,8 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".loading.ShowActivity">
-        </activity>
+        <activity android:name=".loading.ShowActivity"/>
+        <activity android:name=".loading.ShowTimeAllActivity"/>
     </application>
 
 </manifest>
