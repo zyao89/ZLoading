@@ -4,7 +4,7 @@
 ### 引入
 1. Gradle方式引用
 ```gradle
-compile 'com.zyao89:zloading:1.0.8'
+compile 'com.zyao89:zloading:1.0.9'
 ```
 
 ### 更新说明
@@ -13,7 +13,8 @@ compile 'com.zyao89:zloading:1.0.8'
 > - **1.0.7** 新增 SINGLE_CIRCLE 类型动画， 
     修复 TEXT 类型简单缺陷。
     增加 TEXT、RotateCircleBuilder 类型的使用说明。
-> - **1.0.8** 新增 SNAKE_CIRCLE 类型动画（详细见下方展示图）。
+> - **1.0.8** 新增 SNAKE_CIRCLE 类型动画（详细见下方）。
+> - **1.0.9** 新增 STAIRS_CIRCLE 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aa40b3657f119669081f473)）。
 
 ### 使用方式：
 1. XML:
@@ -53,8 +54,8 @@ dialog.setLoadingBuilder(type)//设置类型
 ---
 
 ### 目前拥有的类型：
-索引 | 名称 | 枚举值（Z_TYPE）
-:------:|:------:|:------:
+索引 | 类名 | 枚举值（Z_TYPE）| 昵称 
+:------:|:------:|:------:|:-------:
 0|CircleBuilder | CIRCLE | 圆
 1|ClockBuilder | CIRCLE_CLOCK | 计时器
 2|StarBuilder | STAR_LOADING | 跳舞的星星
@@ -69,6 +70,7 @@ dialog.setLoadingBuilder(type)//设置类型
 11|RotateCircleBuilder | ROTATE_CIRCLE | 多圆旋转
 12|SingleCircleBuilder | SINGLE_CIRCLE | 单圆简单动画
 13|SnakeCircleBuilder | SNAKE_CIRCLE | 引蛇出洞
+14|StairsPathBuilder | STAIRS_CIRCLE | 舞动阶梯
 
 
 ### 效果图如下
@@ -124,6 +126,10 @@ dialog.setLoadingBuilder(type)//设置类型
 [第十三个，SnakeCircleBuilder](https://www.zyao89.cn/blog/article/59e3826d86f97804a8dfceab)
 
 ![展示图](capture/snake_circle.gif)
+
+[第十四个，StairsPathBuilder](https://www.zyao89.cn/blog/article/5aa40b3657f119669081f473)
+
+![展示图](capture/stairs_path.gif)
 
 
 更多可访问 [zyao89.cn](https://www.zyao89.cn/blog/article/59aed640d6571857538cdd46)

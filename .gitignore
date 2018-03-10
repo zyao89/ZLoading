@@ -7,3 +7,5 @@
 /build
 .externalNativeBuild
 updateJcenter
+gradlew
+gradlew.bat
