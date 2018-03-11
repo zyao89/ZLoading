@@ -4,7 +4,7 @@
 ### 引入
 1. Gradle方式引用
 ```gradle
-compile 'com.zyao89:zloading:1.0.9'
+compile 'com.zyao89:zloading:1.0.10'
 ```
 
 ### 更新说明
@@ -14,7 +14,8 @@ compile 'com.zyao89:zloading:1.0.9'
     修复 TEXT 类型简单缺陷。
     增加 TEXT、RotateCircleBuilder 类型的使用说明。
 > - **1.0.8** 新增 SNAKE_CIRCLE 类型动画（详细见下方）。
-> - **1.0.9** 新增 STAIRS_CIRCLE 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aa40b3657f119669081f473)）。
+> - **1.0.9** 新增 STAIRS_PATH 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aa40b3657f119669081f473)）。
+> - **1.0.10** 新增 MUSIC_PATH 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aa55576a1d08a29a8017929)）。
 
 ### 使用方式：
 1. XML:
@@ -70,7 +71,8 @@ dialog.setLoadingBuilder(type)//设置类型
 11|RotateCircleBuilder | ROTATE_CIRCLE | 多圆旋转
 12|SingleCircleBuilder | SINGLE_CIRCLE | 单圆简单动画
 13|SnakeCircleBuilder | SNAKE_CIRCLE | 引蛇出洞
-14|StairsPathBuilder | STAIRS_CIRCLE | 舞动阶梯
+14|StairsPathBuilder | STAIRS_PATH | 舞动阶梯
+14|MusicPathBuilder | MUSIC_PATH | 跳动音符
 
 
 ### 效果图如下
@@ -130,6 +132,10 @@ dialog.setLoadingBuilder(type)//设置类型
 [第十四个，StairsPathBuilder](https://www.zyao89.cn/blog/article/5aa40b3657f119669081f473)
 
 ![展示图](capture/stairs_path.gif)
+
+[第十五个，MusicPathBuilder](https://www.zyao89.cn/blog/article/5aa55576a1d08a29a8017929)
+
+![展示图](capture/music_path.gif)
 
 
 更多可访问 [zyao89.cn](https://www.zyao89.cn/blog/article/59aed640d6571857538cdd46)

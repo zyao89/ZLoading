@@ -55,7 +55,7 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
 
     protected abstract void setAlpha(int alpha);
 
-    protected abstract void prepareStart(ValueAnimator floatValueAnimator);
+    protected abstract void prepareStart(ValueAnimator animation);
 
     protected abstract void prepareEnd();
 
