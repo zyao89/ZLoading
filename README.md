@@ -72,7 +72,7 @@ dialog.setLoadingBuilder(type)//设置类型
 12|SingleCircleBuilder | SINGLE_CIRCLE | 单圆简单动画
 13|SnakeCircleBuilder | SNAKE_CIRCLE | 引蛇出洞
 14|StairsPathBuilder | STAIRS_PATH | 舞动阶梯
-14|MusicPathBuilder | MUSIC_PATH | 跳动音符
+15|MusicPathBuilder | MUSIC_PATH | 跳动音符
 
 
 ### 效果图如下
