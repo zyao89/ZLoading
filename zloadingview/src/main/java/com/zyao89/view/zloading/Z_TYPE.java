@@ -7,12 +7,14 @@ import com.zyao89.view.zloading.circle.DoubleCircleBuilder;
 import com.zyao89.view.zloading.circle.PacManBuilder;
 import com.zyao89.view.zloading.circle.RotateCircleBuilder;
 import com.zyao89.view.zloading.circle.SingleCircleBuilder;
+import com.zyao89.view.zloading.circle.SnakeCircleBuilder;
 import com.zyao89.view.zloading.clock.CircleBuilder;
 import com.zyao89.view.zloading.clock.ClockBuilder;
 import com.zyao89.view.zloading.path.MusicPathBuilder;
 import com.zyao89.view.zloading.path.SearchPathBuilder;
-import com.zyao89.view.zloading.circle.SnakeCircleBuilder;
 import com.zyao89.view.zloading.path.StairsPathBuilder;
+import com.zyao89.view.zloading.rect.StairsRectBuilder;
+import com.zyao89.view.zloading.rect.ChartRectBuilder;
 import com.zyao89.view.zloading.star.LeafBuilder;
 import com.zyao89.view.zloading.star.StarBuilder;
 import com.zyao89.view.zloading.text.TextBuilder;
@@ -41,6 +43,8 @@ public enum Z_TYPE
     SNAKE_CIRCLE(SnakeCircleBuilder.class),
     STAIRS_PATH(StairsPathBuilder.class),
     MUSIC_PATH(MusicPathBuilder.class),
+    STAIRS_RECT(StairsRectBuilder.class),
+    CHART_RECT(ChartRectBuilder.class),
     ;
 
     private final Class<?> mBuilderClass;

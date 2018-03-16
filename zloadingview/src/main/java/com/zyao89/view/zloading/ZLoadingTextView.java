@@ -2,16 +2,11 @@ package com.zyao89.view.zloading;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.view.View;
-import android.widget.ImageView;
 
 import com.zyao89.view.zloading.text.TextBuilder;
-
-import org.w3c.dom.Text;
 
 /**
  * Created by zyao89 on 2017/3/19.

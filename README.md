@@ -4,7 +4,7 @@
 ### 引入
 1. Gradle方式引用
 ```gradle
-compile 'com.zyao89:zloading:1.0.10'
+compile 'com.zyao89:zloading:1.0.11'
 ```
 
 ### 更新说明
@@ -16,6 +16,7 @@ compile 'com.zyao89:zloading:1.0.10'
 > - **1.0.8** 新增 SNAKE_CIRCLE 类型动画（详细见下方）。
 > - **1.0.9** 新增 STAIRS_PATH 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aa40b3657f119669081f473)）。
 > - **1.0.10** 新增 MUSIC_PATH 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aa55576a1d08a29a8017929)）。
+> - **1.0.11** 新增 STAIRS_RECT 和 CHART_RECT 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aac1d06e72bc809a25e58ef)）。
 
 ### 使用方式：
 1. XML:
@@ -73,6 +74,8 @@ dialog.setLoadingBuilder(type)//设置类型
 13|SnakeCircleBuilder | SNAKE_CIRCLE | 引蛇出洞
 14|StairsPathBuilder | STAIRS_PATH | 舞动阶梯
 15|MusicPathBuilder | MUSIC_PATH | 跳动音符
+16|StairsRectBuilder | STAIRS_RECT | 递增方块
+17|ChartRectBuilder | CHART_RECT | 跳动的柱状图
 
 
 ### 效果图如下
@@ -136,6 +139,14 @@ dialog.setLoadingBuilder(type)//设置类型
 [第十五个，MusicPathBuilder](https://www.zyao89.cn/blog/article/5aa55576a1d08a29a8017929)
 
 ![展示图](capture/music_path.gif)
+
+[第十六个，StairsRectBuilder](https://www.zyao89.cn/blog/article/5aac1d06e72bc809a25e58ef)
+
+![展示图](capture/stairs_rect.gif)
+
+[第十七个，ChartRectBuilder](https://www.zyao89.cn/blog/article/5aac1d06e72bc809a25e58ef)
+
+![展示图](capture/chart_rect.gif)
 
 
 更多可访问 [zyao89.cn](https://www.zyao89.cn/blog/article/59aed640d6571857538cdd46)
