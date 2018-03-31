@@ -59,6 +59,7 @@ public class ShowTimeAllActivity extends AppCompatActivity
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position)
         {
             if (holder.itemView instanceof ZLoadingView) {
+//                ((ZLoadingView) holder.itemView).setLoadingBuilder(Z_TYPE.values()[position], 0.2f);
                 ((ZLoadingView) holder.itemView).setLoadingBuilder(Z_TYPE.values()[position]);
                 ((ZLoadingView) holder.itemView).setColorFilter(Color.WHITE);
             }

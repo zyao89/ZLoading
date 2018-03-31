@@ -25,7 +25,7 @@ public class DoubleCircleBuilder extends ZLoadingBuilder
     private RectF mOuterCircleRectF;
     private RectF mInnerCircleRectF;
     //旋转角度
-    private int mRotateAngle;
+    private int   mRotateAngle;
 
     @Override
     protected void initParams(Context context)

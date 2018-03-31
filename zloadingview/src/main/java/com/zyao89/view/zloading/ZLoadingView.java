@@ -37,14 +37,18 @@ public class ZLoadingView extends ImageView
 
     private void init(Context context, AttributeSet attrs)
     {
-        try {
+        try
+        {
             TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.ZLoadingView);
             int typeId = ta.getInt(R.styleable.ZLoadingView_z_type, 0);
             int color = ta.getColor(R.styleable.ZLoadingView_z_color, Color.BLACK);
+            float durationTimePercent = ta.getFloat(R.styleable.ZLoadingView_z_duration_percent, 1.0f);
             ta.recycle();
-            setLoadingBuilder(Z_TYPE.values()[typeId]);
+            setLoadingBuilder(Z_TYPE.values()[typeId], durationTimePercent);
             setColorFilter(color);
-        } catch (Exception e) {
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
@@ -52,19 +56,45 @@ public class ZLoadingView extends ImageView
     public void setLoadingBuilder(@NonNull Z_TYPE builder)
     {
         mZLoadingBuilder = builder.newInstance();
+        initZLoadingDrawable();
+    }
+
+    public void setLoadingBuilder(@NonNull Z_TYPE builder, double durationPercent)
+    {
+        this.setLoadingBuilder(builder);
+        initDurationTimePercent(durationPercent);
+    }
+
+    private void initZLoadingDrawable()
+    {
+        if (mZLoadingBuilder == null)
+        {
+            throw new RuntimeException("mZLoadingBuilder is null.");
+        }
         mZLoadingDrawable = new ZLoadingDrawable(mZLoadingBuilder);
         mZLoadingDrawable.initParams(getContext());
         setImageDrawable(mZLoadingDrawable);
     }
 
+    private void initDurationTimePercent(double durationPercent)
+    {
+        if (mZLoadingBuilder == null)
+        {
+            throw new RuntimeException("mZLoadingBuilder is null.");
+        }
+        mZLoadingBuilder.setDurationTimePercent(durationPercent);
+    }
+
     @Override
-    protected void onAttachedToWindow() {
+    protected void onAttachedToWindow()
+    {
         super.onAttachedToWindow();
         startAnimation();
     }
 
     @Override
-    protected void onDetachedFromWindow() {
+    protected void onDetachedFromWindow()
+    {
         super.onDetachedFromWindow();
         stopAnimation();
     }
@@ -74,21 +104,28 @@ public class ZLoadingView extends ImageView
     {
         super.onVisibilityChanged(changedView, visibility);
         final boolean visible = visibility == VISIBLE && getVisibility() == VISIBLE;
-        if (visible) {
+        if (visible)
+        {
             startAnimation();
-        } else {
+        }
+        else
+        {
             stopAnimation();
         }
     }
 
-    private void startAnimation() {
-        if (mZLoadingDrawable != null) {
+    private void startAnimation()
+    {
+        if (mZLoadingDrawable != null)
+        {
             mZLoadingDrawable.start();
         }
     }
 
-    private void stopAnimation() {
-        if (mZLoadingDrawable != null) {
+    private void stopAnimation()
+    {
+        if (mZLoadingDrawable != null)
+        {
             mZLoadingDrawable.stop();
         }
     }

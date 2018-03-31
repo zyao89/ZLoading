@@ -15,8 +15,15 @@
             <enum name="SearchPathBuilder" value="10"/>
             <enum name="RotateCircleBuilder" value="11"/>
             <enum name="SingleCircleBuilder" value="12"/>
+
+            <enum name="SnakeCircleBuilder" value="13"/>
+            <enum name="StairsPathBuilder" value="14"/>
+            <enum name="MusicPathBuilder" value="15"/>
+            <enum name="StairsRectBuilder" value="16"/>
+            <enum name="ChartRectBuilder" value="17"/>
         </attr>
         <attr name="z_color" format="color"/>
+        <attr name="z_duration_percent" format="float"/>
     </declare-styleable>
     <declare-styleable name="ZLoadingTextView">
         <attr name="z_text" format="string"/>

@@ -4,7 +4,7 @@
 ### 引入
 1. Gradle方式引用
 ```gradle
-compile 'com.zyao89:zloading:1.0.11'
+compile 'com.zyao89:zloading:1.1.0'
 ```
 
 ### 更新说明
@@ -17,6 +17,7 @@ compile 'com.zyao89:zloading:1.0.11'
 > - **1.0.9** 新增 STAIRS_PATH 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aa40b3657f119669081f473)）。
 > - **1.0.10** 新增 MUSIC_PATH 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aa55576a1d08a29a8017929)）。
 > - **1.0.11** 新增 STAIRS_RECT 和 CHART_RECT 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aac1d06e72bc809a25e58ef)）。
+> - **1.1.0** 新增 动画倍速设置 setDurationTime(0.5) （建议不要低于0.3倍速，否则显示效果不是很好）。
 
 ### 使用方式：
 1. XML:
@@ -34,6 +35,7 @@ compile 'com.zyao89:zloading:1.0.11'
 ```java
 ZLoadingView zLoadingView = (ZLoadingView) findViewById(R.id.loadingView_1);
 zLoadingView.setLoadingBuilder(Z_TYPE.CIRCLE);//设置类型
+// zLoadingView.setLoadingBuilder(Z_TYPE.values()[type], 0.5); //设置类型 + 动画时间百分比 - 0.5倍
 zLoadingView.setColorFilter(Color.WHITE);//设置颜色
 ```
 
@@ -45,6 +47,7 @@ dialog.setLoadingBuilder(type)//设置类型
         .setHintText("Loading...")
         .setHintTextSize(16) // 设置字体大小 dp
         .setHintTextColor(Color.GRAY)  // 设置字体颜色
+        .setDurationTime(0.5) // 设置动画时间百分比 - 0.5倍
         .show();
 ```
 

@@ -21,9 +21,9 @@ import com.zyao89.view.zloading.ZLoadingBuilder;
 public class PacManBuilder extends ZLoadingBuilder
 {
     //最终阶段
-    private static final int FINAL_STATE     = 9;
-    private static final int MAX_MOUTH_ANGLE = 45;
-    private static final long DURATION_TIME = 333;
+    private static final int  FINAL_STATE     = 9;
+    private static final int  MAX_MOUTH_ANGLE = 45;
+    private              long mDurationTime   = 333;
     private Paint mFullPaint;
     private RectF mOuterCircleRectF;
     private int   mMouthAngle;
@@ -79,7 +79,9 @@ public class PacManBuilder extends ZLoadingBuilder
     @Override
     protected void prepareStart(ValueAnimator floatValueAnimator)
     {
-        floatValueAnimator.setDuration(DURATION_TIME);
+        mDurationTime = ceil(getAnimationDuration() * 0.3);
+
+        floatValueAnimator.setDuration(mDurationTime);
     }
 
     @Override

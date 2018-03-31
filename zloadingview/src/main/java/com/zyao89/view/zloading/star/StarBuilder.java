@@ -23,15 +23,15 @@ import com.zyao89.view.zloading.ZLoadingBuilder;
  */
 public class StarBuilder extends ZLoadingBuilder
 {
-    private Paint mFullPaint;
-    private float mStarOutR;
-    private float mStarInR;
-    private float mStarOutMidR;
-    private float mStarInMidR;
+    private Paint         mFullPaint;
+    private float         mStarOutR;
+    private float         mStarInR;
+    private float         mStarOutMidR;
+    private float         mStarInMidR;
     //开始偏移角度
-    private int   mStartAngle;
-    private Path  mStarPath;
-    private float mOffsetTranslateY;
+    private int           mStartAngle;
+    private Path          mStarPath;
+    private float         mOffsetTranslateY;
     private RectF         mOvalRectF;
     private float         mShadowWidth;
     private ValueAnimator mShadowAnimator;
@@ -65,8 +65,8 @@ public class StarBuilder extends ZLoadingBuilder
     {
         mShadowAnimator = ValueAnimator.ofFloat(0.0f, 1.0f, 0.0f);
         mShadowAnimator.setRepeatCount(Animation.INFINITE);
-        mShadowAnimator.setDuration(ANIMATION_DURATION);
-        mShadowAnimator.setStartDelay(ANIMATION_START_DELAY);
+        mShadowAnimator.setDuration(getAnimationDuration());
+        mShadowAnimator.setStartDelay(getAnimationStartDelay());
         mShadowAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
     }
 
@@ -141,8 +141,8 @@ public class StarBuilder extends ZLoadingBuilder
         floatValueAnimator.setInterpolator(new DecelerateInterpolator());
 
         mShadowAnimator.setRepeatCount(Animation.INFINITE);
-        mShadowAnimator.setDuration(ANIMATION_DURATION);
-        mShadowAnimator.setStartDelay(ANIMATION_START_DELAY);
+        mShadowAnimator.setDuration(getAnimationDuration());
+        mShadowAnimator.setStartDelay(getAnimationStartDelay());
         mShadowAnimator.addUpdateListener(mAnimatorUpdateListener);
         mShadowAnimator.start();
     }

@@ -21,8 +21,7 @@ import com.zyao89.view.zloading.ZLoadingBuilder;
  */
 public class TextBuilder extends ZLoadingBuilder
 {
-    private static final long DURATION_TIME = 333;
-    private static final int BASE_ALPHA = 100;
+    private static final int    BASE_ALPHA   = 100;
     private static final String DEFAULT_TEXT = "Zyao89";
     private Paint  mTextPaint;
     private String mTextChars;
@@ -35,7 +34,7 @@ public class TextBuilder extends ZLoadingBuilder
         mTextPaint.setColor(Color.BLACK);
         mTextPaint.setDither(true);
         mTextPaint.setFilterBitmap(true);
-        mTextPaint.setTextSize(DEFAULT_SIZE);
+        mTextPaint.setTextSize(getAllSize());
         mTextPaint.setStyle(Paint.Style.FILL);
         mTextPaint.setTextAlign(Paint.Align.LEFT);
 
@@ -66,7 +65,7 @@ public class TextBuilder extends ZLoadingBuilder
     @Override
     protected void prepareStart(ValueAnimator floatValueAnimator)
     {
-        floatValueAnimator.setDuration(DURATION_TIME);
+        floatValueAnimator.setDuration(ceil(getAnimationDuration() * 0.3f));
         floatValueAnimator.setInterpolator(new AccelerateInterpolator());
     }
 
@@ -109,7 +108,7 @@ public class TextBuilder extends ZLoadingBuilder
         float measureText = mTextPaint.measureText(text);
         if (measureText >= getIntrinsicWidth())
         {
-            float v = measureText / DEFAULT_SIZE;
+            float v = measureText / getAllSize();
             mTextPaint.setTextSize(getIntrinsicWidth() / v);
         }
         mTextChars = text;

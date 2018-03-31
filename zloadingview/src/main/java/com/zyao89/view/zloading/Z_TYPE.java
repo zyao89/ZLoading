@@ -13,8 +13,8 @@ import com.zyao89.view.zloading.clock.ClockBuilder;
 import com.zyao89.view.zloading.path.MusicPathBuilder;
 import com.zyao89.view.zloading.path.SearchPathBuilder;
 import com.zyao89.view.zloading.path.StairsPathBuilder;
-import com.zyao89.view.zloading.rect.StairsRectBuilder;
 import com.zyao89.view.zloading.rect.ChartRectBuilder;
+import com.zyao89.view.zloading.rect.StairsRectBuilder;
 import com.zyao89.view.zloading.star.LeafBuilder;
 import com.zyao89.view.zloading.star.StarBuilder;
 import com.zyao89.view.zloading.text.TextBuilder;
@@ -44,8 +44,7 @@ public enum Z_TYPE
     STAIRS_PATH(StairsPathBuilder.class),
     MUSIC_PATH(MusicPathBuilder.class),
     STAIRS_RECT(StairsRectBuilder.class),
-    CHART_RECT(ChartRectBuilder.class),
-    ;
+    CHART_RECT(ChartRectBuilder.class),;
 
     private final Class<?> mBuilderClass;
 
@@ -54,7 +53,8 @@ public enum Z_TYPE
         this.mBuilderClass = builderClass;
     }
 
-    <T extends ZLoadingBuilder>T newInstance(){
+    <T extends ZLoadingBuilder> T newInstance()
+    {
         try
         {
             return (T) mBuilderClass.newInstance();

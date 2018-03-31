@@ -21,14 +21,14 @@ import java.util.LinkedList;
  */
 public class ElasticBallBuilder extends BaseBallBuilder
 {
-    //动画间隔时间
-    private static final long DURATION_TIME = 333;
     //最终阶段
     private static final int                     FINAL_STATE   = 2;
     //小球共5个位置
     private static final int                     SUM_POINT_POS = 5;
     //背景圆集合
     private final        LinkedList<CirclePoint> mBGCircles    = new LinkedList<>();
+    //动画间隔时间
+    private              long                    mDurationTime = 333;
     private float mBallR;
     private Path  mPath;
     //当前动画阶段
@@ -46,6 +46,7 @@ public class ElasticBallBuilder extends BaseBallBuilder
         mBallR = getAllSize() / SUM_POINT_POS;
         mCanvasTranslateOffset = getIntrinsicWidth() / SUM_POINT_POS;
         mPath = new Path();
+
         initPaint(5);
         initPoints(mBallR);
         initBGPoints();
@@ -113,7 +114,8 @@ public class ElasticBallBuilder extends BaseBallBuilder
     @Override
     protected void prepareStart(ValueAnimator floatValueAnimator)
     {
-        floatValueAnimator.setDuration(DURATION_TIME);
+        mDurationTime = ceil(getAnimationDuration() * 0.3f);
+        floatValueAnimator.setDuration(mDurationTime);
     }
 
     @Override
@@ -130,14 +132,14 @@ public class ElasticBallBuilder extends BaseBallBuilder
         switch (currState)
         {
             case 0:
-                animation.setDuration(DURATION_TIME);
+                animation.setDuration(mDurationTime);
                 animation.setInterpolator(new AccelerateInterpolator());
                 mBallPoints.get(5).setOffsetX(animatedValue * offset);
                 mBallPoints.get(6).setOffsetX(animatedValue * offset);
                 mBallPoints.get(7).setOffsetX(animatedValue * offset);
                 break;
             case 1:
-                animation.setDuration(DURATION_TIME + 111);
+                animation.setDuration(mDurationTime + 111);
                 animation.setInterpolator(new DecelerateInterpolator());
                 mBallPoints.get(2).setOffsetX(animatedValue * offset);
                 mBallPoints.get(3).setOffsetX(animatedValue * offset);
@@ -147,21 +149,21 @@ public class ElasticBallBuilder extends BaseBallBuilder
                 mBallPoints.get(10).setOffsetX(animatedValue * offset);
                 break;
             case 2:
-                animation.setDuration(DURATION_TIME + 333);
+                animation.setDuration(mDurationTime + 333);
                 animation.setInterpolator(new BounceInterpolator());
                 mBallPoints.get(0).setOffsetX(animatedValue * offset);
                 mBallPoints.get(1).setOffsetX(animatedValue * offset);
                 mBallPoints.get(11).setOffsetX(animatedValue * offset);
                 break;
             case 3:
-                animation.setDuration(DURATION_TIME);
+                animation.setDuration(mDurationTime);
                 animation.setInterpolator(new AccelerateInterpolator());
                 mBallPoints.get(0).setOffsetX((1 - animatedValue) * offset);
                 mBallPoints.get(1).setOffsetX((1 - animatedValue) * offset);
                 mBallPoints.get(11).setOffsetX((1 - animatedValue) * offset);
                 break;
             case 4:
-                animation.setDuration(DURATION_TIME + 111);
+                animation.setDuration(mDurationTime + 111);
                 animation.setInterpolator(new DecelerateInterpolator());
                 mBallPoints.get(2).setOffsetX((1 - animatedValue) * offset);
                 mBallPoints.get(3).setOffsetX((1 - animatedValue) * offset);
@@ -171,11 +173,13 @@ public class ElasticBallBuilder extends BaseBallBuilder
                 mBallPoints.get(10).setOffsetX((1 - animatedValue) * offset);
                 break;
             case 5:
-                animation.setDuration(DURATION_TIME + 333);
+                animation.setDuration(mDurationTime + 333);
                 animation.setInterpolator(new BounceInterpolator());
                 mBallPoints.get(5).setOffsetX((1 - animatedValue) * offset);
                 mBallPoints.get(6).setOffsetX((1 - animatedValue) * offset);
                 mBallPoints.get(7).setOffsetX((1 - animatedValue) * offset);
+                break;
+            default:
                 break;
         }
     }

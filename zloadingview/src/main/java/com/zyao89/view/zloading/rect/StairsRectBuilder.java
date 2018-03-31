@@ -20,16 +20,16 @@ public class StairsRectBuilder extends BaseStateBuilder
     /**
      * 台阶总数
      */
-    private final int FLOOR_NUM = 5;
+    private final    int   FLOOR_NUM            = 5;
     /**
      * 动画间隔时长
      */
-    private final int ANIMATE_DURATION_TIME = 500;
+    private volatile long  mAnimateDurationTime = 500;
     /**
      * 当前台阶数
      */
-    private volatile int   mCurrFloorNum      = 0;
-    private volatile float mCurrAnimatedValue = 0;
+    private volatile int   mCurrFloorNum        = 0;
+    private volatile float mCurrAnimatedValue   = 0;
     private Paint mPaint;
     private float mR;
     private RectF mStairRectF;
@@ -89,8 +89,9 @@ public class StairsRectBuilder extends BaseStateBuilder
     @Override
     protected void prepareStart(ValueAnimator animation)
     {
+        mAnimateDurationTime = ceil(getAnimationDuration() * 0.5);
         // 动画间隔
-        animation.setDuration(ANIMATE_DURATION_TIME);
+        animation.setDuration(mAnimateDurationTime);
         animation.setInterpolator(new DecelerateInterpolator());
     }
 

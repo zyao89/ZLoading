@@ -40,8 +40,8 @@ public class ClockBuilder extends CircleBuilder
         float btnHeight = dip2px(context, 3);
         float bottomBtnWidth = dip2px(context, 3);
         float bottomBtnHeight = dip2px(context, 2);
-        mBtnRectF = new RectF(getViewCenterX() - btnWidth/2, getViewCenterY() - allSize - bottomBtnHeight - btnHeight, getViewCenterX() + btnWidth/2, getViewCenterY() - allSize - bottomBtnHeight);
-        mBottomBtnRectF = new RectF(getViewCenterX() - bottomBtnWidth/2, getViewCenterY() - allSize - bottomBtnHeight, getViewCenterX() + bottomBtnWidth/2, getViewCenterY() - allSize);
+        mBtnRectF = new RectF(getViewCenterX() - btnWidth / 2, getViewCenterY() - allSize - bottomBtnHeight - btnHeight, getViewCenterX() + btnWidth / 2, getViewCenterY() - allSize - bottomBtnHeight);
+        mBottomBtnRectF = new RectF(getViewCenterX() - bottomBtnWidth / 2, getViewCenterY() - allSize - bottomBtnHeight, getViewCenterX() + bottomBtnWidth / 2, getViewCenterY() - allSize);
     }
 
     private void createStrokePaint()

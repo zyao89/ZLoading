@@ -18,7 +18,7 @@ import android.view.animation.AccelerateInterpolator;
 public class IntertwineBuilder extends BaseBallBuilder
 {
     //最终阶段
-    private static final int  FINAL_STATE     = 1;
+    private static final int FINAL_STATE = 1;
     private float mBallR;
     private Path  mPath;
     //当前动画阶段

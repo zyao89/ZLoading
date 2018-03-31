@@ -26,6 +26,7 @@ public class ZLoadingDialog
     private int     mHintTextColor          = -1;
     private boolean mCancelable             = true;
     private boolean mCanceledOnTouchOutside = true;
+    private double   mDurationTimePercent    = 1.0f;
     private Dialog mZLoadingDialog;
 
     public ZLoadingDialog(@NonNull Context context)
@@ -87,6 +88,12 @@ public class ZLoadingDialog
         return this;
     }
 
+    public ZLoadingDialog setDurationTime(double percent)
+    {
+        this.mDurationTimePercent = percent;
+        return this;
+    }
+
     private
     @NonNull
     View createContentView()
@@ -127,6 +134,11 @@ public class ZLoadingDialog
             zTextView.setColorFilter(this.mHintTextColor == -1 ? this.mLoadingBuilderColor : this.mHintTextColor);
         }
         zLoadingView.setLoadingBuilder(this.mLoadingBuilderType);
+        // 设置间隔百分比
+        if (zLoadingView.mZLoadingBuilder != null)
+        {
+            zLoadingView.mZLoadingBuilder.setDurationTimePercent(this.mDurationTimePercent);
+        }
         zLoadingView.setColorFilter(this.mLoadingBuilderColor);
         mZLoadingDialog.setContentView(contentView);
         mZLoadingDialog.setCancelable(this.mCancelable);

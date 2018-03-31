@@ -45,7 +45,8 @@ public class ZLoadingDrawable extends Drawable implements Animatable
 
     void initParams(Context context)
     {
-        if (mZLoadingBuilder != null){
+        if (mZLoadingBuilder != null)
+        {
             mZLoadingBuilder.init(context);
             mZLoadingBuilder.initParams(context);
         }
@@ -54,7 +55,8 @@ public class ZLoadingDrawable extends Drawable implements Animatable
     @Override
     public void draw(@NonNull Canvas canvas)
     {
-        if (!getBounds().isEmpty()){
+        if (!getBounds().isEmpty())
+        {
             this.mZLoadingBuilder.draw(canvas);
         }
     }

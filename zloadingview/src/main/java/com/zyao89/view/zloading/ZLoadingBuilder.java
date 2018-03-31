@@ -19,8 +19,8 @@ import android.view.animation.LinearInterpolator;
 public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateListener, Animator.AnimatorListener
 {
     protected static final float DEFAULT_SIZE          = 56.0f;
-    protected static final   long  ANIMATION_START_DELAY = 333;
-    protected static final   long  ANIMATION_DURATION    = 1333;
+    protected static final long  ANIMATION_START_DELAY = 333;
+    protected static final long  ANIMATION_DURATION    = 1333;
 
     private float mAllSize;
     private float mViewWidth;
@@ -28,14 +28,14 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
 
     private Drawable.Callback mCallback;
     private ValueAnimator     mFloatValueAnimator;
-    private long              mDuration;
+
+    private double mDurationTimePercent = 1.0;
 
     void init(Context context)
     {
         mAllSize = dip2px(context, DEFAULT_SIZE * 0.5f - 10);
         mViewWidth = dip2px(context, DEFAULT_SIZE);
         mViewHeight = dip2px(context, DEFAULT_SIZE);
-        mDuration = ANIMATION_DURATION;
 
         initAnimators();
     }
@@ -44,8 +44,8 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
     {
         mFloatValueAnimator = ValueAnimator.ofFloat(0.0f, 1.0f);
         mFloatValueAnimator.setRepeatCount(Animation.INFINITE);
-        mFloatValueAnimator.setDuration(mDuration);
-        mFloatValueAnimator.setStartDelay(ANIMATION_START_DELAY);
+        mFloatValueAnimator.setDuration(getAnimationDuration());
+        mFloatValueAnimator.setStartDelay(getAnimationStartDelay());
         mFloatValueAnimator.setInterpolator(new LinearInterpolator());
     }
 
@@ -82,7 +82,7 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
         mFloatValueAnimator.addUpdateListener(this);
         mFloatValueAnimator.addListener(this);
         mFloatValueAnimator.setRepeatCount(Animation.INFINITE);
-        mFloatValueAnimator.setDuration(mDuration);
+        mFloatValueAnimator.setDuration(getAnimationDuration());
         prepareStart(mFloatValueAnimator);
         mFloatValueAnimator.start();
     }
@@ -141,6 +141,28 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
 
     }
 
+    public void setDurationTimePercent(double durationTimePercent)
+    {
+        if (durationTimePercent <= 0)
+        {
+            mDurationTimePercent = 1.0f;
+        }
+        else
+        {
+            mDurationTimePercent = durationTimePercent;
+        }
+    }
+
+    protected long getAnimationStartDelay()
+    {
+        return ANIMATION_START_DELAY;
+    }
+
+    protected long getAnimationDuration()
+    {
+        return ceil(ANIMATION_DURATION * mDurationTimePercent);
+    }
+
     protected float getIntrinsicHeight()
     {
         return mViewHeight;
@@ -170,5 +192,10 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
     {
         float scale = context.getResources().getDisplayMetrics().density;
         return dpValue * scale;
+    }
+
+    protected static long ceil(double value)
+    {
+        return (long) Math.ceil(value);
     }
 }

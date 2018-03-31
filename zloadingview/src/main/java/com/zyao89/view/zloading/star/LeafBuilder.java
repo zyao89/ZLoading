@@ -32,7 +32,7 @@ public class LeafBuilder extends ZLoadingBuilder
     private float mCenterCircleR;
     private int   mRotateAngle;
     //当前动画阶段
-    private int   mCurrAnimatorState = 0;
+    private int mCurrAnimatorState = 0;
     private Path mStarPath;
 
     @Override
@@ -90,7 +90,7 @@ public class LeafBuilder extends ZLoadingBuilder
     /**
      * 绘制五叶草
      *
-     * @param path 路径
+     * @param path       路径
      * @param num        角数量
      * @param startAngle 初始角度
      * @return

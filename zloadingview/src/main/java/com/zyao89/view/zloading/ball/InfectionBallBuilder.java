@@ -20,11 +20,11 @@ import android.view.animation.LinearInterpolator;
 public class InfectionBallBuilder extends BaseBallBuilder
 {
     //动画间隔时间
-    private static final long DURATION_TIME   = 888;
-    private static final long DURATION_TIME_1 = 222;
-    private static final long DURATION_TIME_2 = 333;
-    private static final long DURATION_TIME_3 = 1333;
-    private static final long DURATION_TIME_4 = 1333;
+    private              long mDurationTime   = 888;
+    private              long mDurationTime_1 = 222;
+    private              long mDurationTime_2 = 333;
+    private              long mDurationTime_3 = 1333;
+    private              long mDurationTime_4 = 1333;
     //最终阶段
     private static final int  FINAL_STATE     = 4;
     private static final int  SUM_POINT_POS   = 3;
@@ -41,6 +41,7 @@ public class InfectionBallBuilder extends BaseBallBuilder
         mBallR = getAllSize() / SUM_POINT_POS;
         mCanvasTranslateOffset = getIntrinsicWidth() / SUM_POINT_POS;
         mPath = new Path();
+
         initPaint(5);
         initPoints(mBallR);
     }
@@ -68,7 +69,11 @@ public class InfectionBallBuilder extends BaseBallBuilder
     @Override
     protected void prepareStart(ValueAnimator floatValueAnimator)
     {
-
+        mDurationTime = ceil(getAnimationDuration() * 0.7);
+        mDurationTime_1 = ceil(getAnimationDuration() * 0.2);
+        mDurationTime_2 = ceil(getAnimationDuration() * 0.3);
+        mDurationTime_3 = getAnimationDuration();
+        mDurationTime_4 = getAnimationDuration();
     }
 
     @Override
@@ -84,14 +89,14 @@ public class InfectionBallBuilder extends BaseBallBuilder
         switch (mCurrAnimatorState)
         {
             case 0:
-                animation.setDuration(DURATION_TIME);
+                animation.setDuration(mDurationTime);
                 animation.setInterpolator(new AccelerateInterpolator());
                 mBallPoints.get(2).setOffsetY(animatedValue * offset);
                 mBallPoints.get(3).setOffsetY(animatedValue * offset);
                 mBallPoints.get(4).setOffsetY(animatedValue * offset);
                 break;
             case 1:
-                animation.setDuration(DURATION_TIME_1);
+                animation.setDuration(mDurationTime_1);
                 animation.setInterpolator(new LinearInterpolator());
                 mBallPoints.get(5).setOffsetY(animatedValue * offset);
                 mBallPoints.get(6).setOffsetY(animatedValue * offset);
@@ -101,7 +106,7 @@ public class InfectionBallBuilder extends BaseBallBuilder
                 mBallPoints.get(11).setOffsetY(animatedValue * offset);
                 break;
             case 2:
-                animation.setDuration(DURATION_TIME_2);
+                animation.setDuration(mDurationTime_2);
                 animation.setInterpolator(new AccelerateInterpolator());
                 for (int i = 0; i < mBallPoints.size(); i++)
                 {
@@ -116,7 +121,7 @@ public class InfectionBallBuilder extends BaseBallBuilder
                 }
                 break;
             case 3:
-                animation.setDuration(DURATION_TIME_3);
+                animation.setDuration(mDurationTime_3);
                 animation.setInterpolator(new DecelerateInterpolator());
 
                 mBallPoints.get(8).setOffsetY(animatedValue * offset + offset);
@@ -132,8 +137,10 @@ public class InfectionBallBuilder extends BaseBallBuilder
                 mBallPoints.get(11).setOffsetX(-animatedValue * offset);
                 break;
             case 4:
-                animation.setDuration(DURATION_TIME_4);
+                animation.setDuration(mDurationTime_4);
                 mPaint.setAlpha((int) ((1 - animatedValue) * 255));
+                break;
+            default:
                 break;
         }
     }

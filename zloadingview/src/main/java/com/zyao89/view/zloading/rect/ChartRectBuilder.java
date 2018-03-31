@@ -19,16 +19,16 @@ public class ChartRectBuilder extends BaseStateBuilder
     /**
      * 总数
      */
-    private final int      SUM_NUM               = 5;
+    private final    int   SUM_NUM              = 5;
     /**
      * 动画间隔时长
      */
-    private final int      ANIMATE_DURATION_TIME = 500;
+    private volatile long  mAnimateDurationTime = 500;
     /**
      * 当前
      */
-    private volatile int   mCurrStateNum         = 0;
-    private volatile float mCurrAnimatedValue    = 0;
+    private volatile int   mCurrStateNum        = 0;
+    private volatile float mCurrAnimatedValue   = 0;
     private Paint mPaint;
     private float mR;
     private RectF mStairRectF;
@@ -90,8 +90,9 @@ public class ChartRectBuilder extends BaseStateBuilder
     @Override
     protected void prepareStart(ValueAnimator animation)
     {
+        mAnimateDurationTime = ceil(getAnimationDuration() * 0.4);
         // 动画间隔
-        animation.setDuration(ANIMATE_DURATION_TIME);
+        animation.setDuration(mAnimateDurationTime);
     }
 
     @Override

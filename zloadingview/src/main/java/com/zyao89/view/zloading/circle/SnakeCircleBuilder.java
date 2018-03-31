@@ -33,10 +33,10 @@ public class SnakeCircleBuilder extends ZLoadingBuilder
     private RectF mInterCircleRectF;
     private int mAlpha = 255;
     //旋转角度
-    private float mRotateAngle;
-    private float mAntiRotateAngle;
+    private float       mRotateAngle;
+    private float       mAntiRotateAngle;
     //路径
-    private Path mPath;
+    private Path        mPath;
     private PathMeasure mPathMeasure;
     private Path        mDrawPath;
 
