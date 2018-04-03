@@ -117,11 +117,12 @@ public class MainActivity extends AppCompatActivity
                     default:
                         ZLoadingDialog dialog = new ZLoadingDialog(MainActivity.this);
                         dialog.setLoadingBuilder(type)
-                                .setLoadingColor(Color.BLACK)
+                                .setLoadingColor(Color.parseColor("#ff5305"))
                                 .setHintText("Loading...")
 //                                .setHintTextSize(16) // 设置字体大小
                                 .setHintTextColor(Color.GRAY)  // 设置字体颜色
 //                                .setDurationTime(0.5) // 设置动画时间百分比
+                                .setDialogBackgroundColor(Color.parseColor("#111111")) // 设置背景色
                                 .show();
                         break;
                 }

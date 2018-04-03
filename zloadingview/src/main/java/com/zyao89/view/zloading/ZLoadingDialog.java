@@ -2,9 +2,13 @@ package com.zyao89.view.zloading;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
@@ -26,7 +30,8 @@ public class ZLoadingDialog
     private int     mHintTextColor          = -1;
     private boolean mCancelable             = true;
     private boolean mCanceledOnTouchOutside = true;
-    private double   mDurationTimePercent    = 1.0f;
+    private double  mDurationTimePercent    = 1.0f;
+    private int     mDialogBackgroundColor  = -1;
     private Dialog mZLoadingDialog;
 
     public ZLoadingDialog(@NonNull Context context)
@@ -46,7 +51,7 @@ public class ZLoadingDialog
         return this;
     }
 
-    public ZLoadingDialog setLoadingColor(int color)
+    public ZLoadingDialog setLoadingColor(@ColorInt int color)
     {
         this.mLoadingBuilderColor = color;
         return this;
@@ -70,7 +75,7 @@ public class ZLoadingDialog
         return this;
     }
 
-    public ZLoadingDialog setHintTextColor(int color)
+    public ZLoadingDialog setHintTextColor(@ColorInt int color)
     {
         this.mHintTextColor = color;
         return this;
@@ -91,6 +96,12 @@ public class ZLoadingDialog
     public ZLoadingDialog setDurationTime(double percent)
     {
         this.mDurationTimePercent = percent;
+        return this;
+    }
+
+    public ZLoadingDialog setDialogBackgroundColor(@ColorInt int color)
+    {
+        this.mDialogBackgroundColor = color;
         return this;
     }
 
@@ -117,6 +128,18 @@ public class ZLoadingDialog
         }
         mZLoadingDialog = new Dialog(this.mContext.get(), this.mThemeResId);
         View contentView = createContentView();
+        LinearLayout zLoadingRootView = (LinearLayout) contentView.findViewById(R.id.z_loading);
+
+        // init color
+        if (this.mDialogBackgroundColor <= -1)
+        {
+            final Drawable drawable = zLoadingRootView.getBackground();
+            if (drawable != null)
+            {
+                drawable.setColorFilter(this.mDialogBackgroundColor, PorterDuff.Mode.SRC_ATOP);
+            }
+        }
+
         ZLoadingView zLoadingView = (ZLoadingView) contentView.findViewById(R.id.z_loading_view);
         ZLoadingTextView zTextView = (ZLoadingTextView) contentView.findViewById(R.id.z_text_view);
         TextView zCustomTextView = (TextView) contentView.findViewById(R.id.z_custom_text_view);
@@ -131,7 +154,7 @@ public class ZLoadingDialog
         {
             zTextView.setVisibility(View.VISIBLE);
             zTextView.setText(mHintText);
-            zTextView.setColorFilter(this.mHintTextColor == -1 ? this.mLoadingBuilderColor : this.mHintTextColor);
+            zTextView.setColorFilter(this.mHintTextColor == -1 ? this.mLoadingBuilderColor : this.mHintTextColor, PorterDuff.Mode.SRC_ATOP);
         }
         zLoadingView.setLoadingBuilder(this.mLoadingBuilderType);
         // 设置间隔百分比
@@ -139,7 +162,7 @@ public class ZLoadingDialog
         {
             zLoadingView.mZLoadingBuilder.setDurationTimePercent(this.mDurationTimePercent);
         }
-        zLoadingView.setColorFilter(this.mLoadingBuilderColor);
+        zLoadingView.setColorFilter(this.mLoadingBuilderColor, PorterDuff.Mode.SRC_ATOP);
         mZLoadingDialog.setContentView(contentView);
         mZLoadingDialog.setCancelable(this.mCancelable);
         mZLoadingDialog.setCanceledOnTouchOutside(this.mCanceledOnTouchOutside);
