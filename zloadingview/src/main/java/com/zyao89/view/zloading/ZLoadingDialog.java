@@ -2,6 +2,7 @@ package com.zyao89.view.zloading;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
@@ -131,11 +132,12 @@ public class ZLoadingDialog
         LinearLayout zLoadingRootView = (LinearLayout) contentView.findViewById(R.id.z_loading);
 
         // init color
-        if (this.mDialogBackgroundColor <= -1)
+        if (this.mDialogBackgroundColor != -1)
         {
             final Drawable drawable = zLoadingRootView.getBackground();
             if (drawable != null)
             {
+                drawable.setAlpha(Color.alpha(this.mDialogBackgroundColor));
                 drawable.setColorFilter(this.mDialogBackgroundColor, PorterDuff.Mode.SRC_ATOP);
             }
         }

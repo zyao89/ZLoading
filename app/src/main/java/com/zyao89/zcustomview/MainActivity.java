@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity
 //                                .setHintTextSize(16) // 设置字体大小
                                 .setHintTextColor(Color.GRAY)  // 设置字体颜色
 //                                .setDurationTime(0.5) // 设置动画时间百分比
-                                .setDialogBackgroundColor(Color.parseColor("#111111")) // 设置背景色
+                                .setDialogBackgroundColor(Color.parseColor("#cc111111")) // 设置背景色
                                 .show();
                         break;
                 }
