@@ -19,7 +19,7 @@ compile 'com.zyao89:zloading:1.1.2'
 > - **1.0.11** 新增 STAIRS_RECT 和 CHART_RECT 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aac1d06e72bc809a25e58ef)）。
 > - **1.1.0** 新增 动画倍速设置 setDurationTime(0.5) （建议不要低于0.3倍速，否则显示效果不是很好）。
 > - **1.1.1** 新增 等待框背景色设置接口 setDialogBackgroundColor(Color.parseColor("#111111"))。
-> - **1.1.2** 更新修复 setDialogBackgroundColor 接口支持透明度设置。
+> - **1.1.2** 更新修复 setDialogBackgroundColor 接口支持透明度设置，解决[#10](https://github.com/zyao89/ZLoading/issues/10)
 
 ### 使用方式：
 1. XML:
