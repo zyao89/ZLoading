@@ -9,6 +9,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.zyao89.view.zloading.ZLoadingView;
 import com.zyao89.view.zloading.Z_TYPE;
@@ -51,17 +52,19 @@ public class ShowTimeAllActivity extends AppCompatActivity
         @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
         {
+            FrameLayout rootLayout = new FrameLayout(parent.getContext());
             ZLoadingView zLoadingView = new ZLoadingView(parent.getContext());
-            return new MyViewHolder(zLoadingView, parent);
+            rootLayout.addView(zLoadingView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            return new MyViewHolder(rootLayout, zLoadingView, parent);
         }
 
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position)
         {
-            if (holder.itemView instanceof ZLoadingView) {
+            if (holder.mZLoadingView instanceof ZLoadingView) {
 //                ((ZLoadingView) holder.itemView).setLoadingBuilder(Z_TYPE.values()[position], 0.2f);
-                ((ZLoadingView) holder.itemView).setLoadingBuilder(Z_TYPE.values()[position]);
-                ((ZLoadingView) holder.itemView).setColorFilter(Color.WHITE);
+                ((ZLoadingView) holder.mZLoadingView).setLoadingBuilder(Z_TYPE.values()[position]);
+                ((ZLoadingView) holder.mZLoadingView).setColorFilter(Color.WHITE);
             }
         }
 
@@ -74,9 +77,35 @@ public class ShowTimeAllActivity extends AppCompatActivity
 
     private static class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private MyViewHolder(View itemView, ViewGroup parent)
+        private final View mZLoadingView;
+
+        private MyViewHolder(ViewGroup itemView, View zLoadingView, ViewGroup parent)
         {
             super(itemView);
+            this.mZLoadingView = zLoadingView;
+
+            initSize(parent);
+
+            initListener();
+        }
+
+        private void initListener()
+        {
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    if (mZLoadingView.isShown()) {
+                        mZLoadingView.setVisibility(View.GONE);
+                    } else {
+                        mZLoadingView.setVisibility(View.VISIBLE);
+                    }
+                }
+            });
+        }
+
+        private void initSize(ViewGroup parent)
+        {
             int measuredWidth = parent.getMeasuredWidth();
             itemView.setMinimumHeight(measuredWidth / 3);
             itemView.setPadding(measuredWidth / 9, measuredWidth / 9, measuredWidth / 9, measuredWidth / 9);
