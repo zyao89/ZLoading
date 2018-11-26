@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.zyao89.view.zloading.ZLoadingBuilder;
 import com.zyao89.view.zloading.ZLoadingDialog;
 import com.zyao89.view.zloading.Z_TYPE;
 import com.zyao89.zcustomview.loading.ShowActivity;
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity
         LinearLayout containerLinearLayout = (LinearLayout) findViewById(R.id.container);
         createAllButton(containerLinearLayout);
         createButtons(containerLinearLayout);
+
+        // 修改基本尺寸， 原尺寸为 56.0f
+//        ZLoadingBuilder.DEFAULT_SIZE = 100.0f;
     }
 
     @Override
@@ -118,7 +122,7 @@ public class MainActivity extends AppCompatActivity
                         ZLoadingDialog dialog = new ZLoadingDialog(MainActivity.this);
                         dialog.setLoadingBuilder(type)
                                 .setLoadingColor(Color.parseColor("#ff5305"))
-                                .setHintText("Loading...")
+                                .setHintText("正在加载中...")
 //                                .setHintTextSize(16) // 设置字体大小
                                 .setHintTextColor(Color.GRAY)  // 设置字体颜色
 //                                .setDurationTime(0.5) // 设置动画时间百分比

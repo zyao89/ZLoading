@@ -18,7 +18,10 @@ import android.view.animation.LinearInterpolator;
  */
 public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateListener, Animator.AnimatorListener
 {
-    protected static final float DEFAULT_SIZE          = 56.0f;
+    /**
+     * 外部可以修改，但是不建议
+     */
+    public static float DEFAULT_SIZE          = 56.0f;
     protected static final long  ANIMATION_START_DELAY = 333;
     protected static final long  ANIMATION_DURATION    = 1333;
 
@@ -33,7 +36,7 @@ public abstract class ZLoadingBuilder implements ValueAnimator.AnimatorUpdateLis
 
     void init(Context context)
     {
-        mAllSize = dip2px(context, DEFAULT_SIZE * 0.5f - 10);
+        mAllSize = dip2px(context, DEFAULT_SIZE * 0.5f - 12);
         mViewWidth = dip2px(context, DEFAULT_SIZE);
         mViewHeight = dip2px(context, DEFAULT_SIZE);
 
