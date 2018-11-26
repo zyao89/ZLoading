@@ -4,22 +4,23 @@
 ### 引入
 1. Gradle方式引用
 ```gradle
-compile 'com.zyao89:zloading:1.1.2'
+compile 'com.zyao89:zloading:1.2.0'
 ```
 
 ### 更新说明
-> - **1.0.6** 增加字号设置，颜色设置， 解决[#2](https://github.com/zyao89/ZLoading/issues/2)
-    补充说明：设置字号后，提示文字不再有动画
+> - **1.2.0** 开放 DEFAULT_SIZE 修改, 修复解决[#11](https://github.com/zyao89/ZLoading/issues/11) [#12](https://github.com/zyao89/ZLoading/issues/12)
+> - **1.1.2** 更新修复 setDialogBackgroundColor 接口支持透明度设置，解决[#10](https://github.com/zyao89/ZLoading/issues/10)
+> - **1.1.1** 新增 等待框背景色设置接口 setDialogBackgroundColor(Color.parseColor("#111111"))。
+> - **1.1.0** 新增 动画倍速设置 setDurationTime(0.5) （建议不要低于0.3倍速，否则显示效果不是很好）。
+> - **1.0.11** 新增 STAIRS_RECT 和 CHART_RECT 类型动画（详细见下方）。
+> - **1.0.10** 新增 MUSIC_PATH 类型动画（详细见下方）。
+> - **1.0.9** 新增 STAIRS_PATH 类型动画（详细见下方）。
+> - **1.0.8** 新增 SNAKE_CIRCLE 类型动画（详细见下方）。
 > - **1.0.7** 新增 SINGLE_CIRCLE 类型动画， 
     修复 TEXT 类型简单缺陷。
     增加 TEXT、RotateCircleBuilder 类型的使用说明。
-> - **1.0.8** 新增 SNAKE_CIRCLE 类型动画（详细见下方）。
-> - **1.0.9** 新增 STAIRS_PATH 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aa40b3657f119669081f473)）。
-> - **1.0.10** 新增 MUSIC_PATH 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aa55576a1d08a29a8017929)）。
-> - **1.0.11** 新增 STAIRS_RECT 和 CHART_RECT 类型动画（详细见下方 or [跳转](https://www.zyao89.cn/blog/article/5aac1d06e72bc809a25e58ef)）。
-> - **1.1.0** 新增 动画倍速设置 setDurationTime(0.5) （建议不要低于0.3倍速，否则显示效果不是很好）。
-> - **1.1.1** 新增 等待框背景色设置接口 setDialogBackgroundColor(Color.parseColor("#111111"))。
-> - **1.1.2** 更新修复 setDialogBackgroundColor 接口支持透明度设置，解决[#10](https://github.com/zyao89/ZLoading/issues/10)
+> - **1.0.6** 增加字号设置，颜色设置， 解决[#2](https://github.com/zyao89/ZLoading/issues/2)
+    补充说明：设置字号后，提示文字不再有动画
 
 ### 使用方式：
 1. XML:
