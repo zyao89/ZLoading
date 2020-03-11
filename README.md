@@ -91,72 +91,72 @@ dialog.setLoadingBuilder(type)//设置类型
 
 ![展示图](capture/circle_loading.gif)
 
-[第二个，StarBuilder](https://www.zyao89.cn/blog/article/59aedad0d6571857538cdd4c)
+[第二个，StarBuilder](https://zyao89.cn/s-12773350)
 
 ![展示图](capture/star_loading.gif)
 
-[第三个，LeafBuilder](https://www.zyao89.cn/blog/article/59aedc12d6571857538cdd4d)
+[第三个，LeafBuilder](https://zyao89.cn/s-5a6b347e)
 
 ![展示图](capture/leaf_loading.gif)
 
-[第四个，DoubleCircleBuilder](https://www.zyao89.cn/blog/article/59aedca4d6571857538cdd4e)
+[第四个，DoubleCircleBuilder](https://zyao89.cn/s-62c173ea)
 
 ![展示图](capture/double_circle.gif)
 
-[第五个，PacManBuilder](https://www.zyao89.cn/blog/article/59aedd70d6571857538cdd4f)
+[第五个，PacManBuilder](https://zyao89.cn/s-39d73c5c)
 
 ![展示图](capture/pac_man.gif)
 
-[第六个，ElasticBallBuilder](https://www.zyao89.cn/blog/article/59b3bd65d6571857538cdd54)
+[第六个，ElasticBallBuilder](https://zyao89.cn/s-17fd94b6)
 
 ![展示图](capture/elastic_ball.gif)
 
-[第七个，InfectionBallBuilder](https://www.zyao89.cn/blog/article/59c784d85582770263c49039)
+[第七个，InfectionBallBuilder](https://zyao89.cn/s-3e943576)
 
 ![展示图](capture/infection_ball.gif)
 
-[第八个，IntertwineBuilder](https://www.zyao89.cn/blog/article/59c791785582770263c4903a)
+[第八个，IntertwineBuilder](https://zyao89.cn/s-3cf24ca7)
 
 ![展示图](capture/intertwine.gif)
 
-[第九个，TextBuilder](https://www.zyao89.cn/blog/article/59d906aa87737d05bab021f5)
+[第九个，TextBuilder](https://zyao89.cn/s-7db9f766)
 
 ![展示图](capture/text_loading.gif)
 
-[第十个，SearchPathBuilder](https://www.zyao89.cn/blog/article/59c79b7f5582770263c4903b)
+[第十个，SearchPathBuilder](https://zyao89.cn/s-7db9f766)
 
 ![展示图](capture/search_path.gif)
 
-[第十一个，RotateCircleBuilder](https://www.zyao89.cn/blog/article/59d927aa43824776ebc77825)
+[第十一个，RotateCircleBuilder](https://zyao89.cn/s-6b0fa535)
 
 ![展示图](capture/rotate_circle.gif)
 
-[第十二个，SingleCircleBuilder](https://www.zyao89.cn/blog/article/59d9284f43824776ebc77826)
+[第十二个，SingleCircleBuilder](https://zyao89.cn/s-6b0fa535)
 
 ![展示图](capture/single_circle.gif)
 
-[第十三个，SnakeCircleBuilder](https://www.zyao89.cn/blog/article/59e3826d86f97804a8dfceab)
+[第十三个，SnakeCircleBuilder](https://zyao89.cn/s-0fbb1b3a)
 
 ![展示图](capture/snake_circle.gif)
 
-[第十四个，StairsPathBuilder](https://www.zyao89.cn/blog/article/5aa40b3657f119669081f473)
+[第十四个，StairsPathBuilder](https://zyao89.cn/s-6b0fa535)
 
 ![展示图](capture/stairs_path.gif)
 
-[第十五个，MusicPathBuilder](https://www.zyao89.cn/blog/article/5aa55576a1d08a29a8017929)
+[第十五个，MusicPathBuilder](https://zyao89.cn/s-011d4a04)
 
 ![展示图](capture/music_path.gif)
 
-[第十六个，StairsRectBuilder](https://www.zyao89.cn/blog/article/5aac1d06e72bc809a25e58ef)
+[第十六个，StairsRectBuilder](https://zyao89.cn/s-4c67d8d3)
 
 ![展示图](capture/stairs_rect.gif)
 
-[第十七个，ChartRectBuilder](https://www.zyao89.cn/blog/article/5aac1d06e72bc809a25e58ef)
+[第十七个，ChartRectBuilder](https://zyao89.cn/s-6b0fa535)
 
 ![展示图](capture/chart_rect.gif)
 
 
-更多可访问 [zyao89.cn](https://www.zyao89.cn/blog/article/59aed640d6571857538cdd46)
+更多可访问 [zyao89.cn](https://zyao89.cn/s-6b0fa5356)
 
 
 ### License
